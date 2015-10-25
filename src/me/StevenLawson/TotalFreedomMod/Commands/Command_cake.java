@@ -15,7 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 @CommandParameters(description = "For the people that are still alive.", usage = "/<command>")
 public class Command_cake extends TFM_Command
 {
-    public static final String CAKE_LYRICS = "But there's no sense crying over every mistake. You just keep on trying till you run out of cake.";
+    public static final String CAKE_LYRICS = "*GlAdOs Voice But there's no sense crying over every mistake. You just keep on trying till you run out of cake < From Portal Song Still Alive <3.";
     private final Random random = new Random();
 
     @Override
@@ -31,7 +31,7 @@ public class Command_cake extends TFM_Command
 
         final ItemStack heldItem = new ItemStack(Material.CAKE);
         final ItemMeta heldItemMeta = heldItem.getItemMeta();
-        heldItemMeta.setDisplayName((new StringBuilder()).append(ChatColor.WHITE).append("The ").append(ChatColor.DARK_GRAY).append("Lie").toString());
+        heldItemMeta.setDisplayName((new StringBuilder()).append(ChatColor.GOLD).append("Cake ").append(ChatColor.DARK_GRAY).append("For").append(ChatColor.DARK_BLUE).append("Dayzzz").toString());
         heldItem.setItemMeta(heldItemMeta);
 
         for (final Player player : server.getOnlinePlayers())
