@@ -23,14 +23,14 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 @CommandPermissions(level = AdminLevel.OP, source = SourceType.ONLY_IN_GAME)
-@CommandParameters(description = "Graces the world with hackness. Command that is pretty pointless unless you are a hacker.", usage = "/<command>", aliases = "mothafacka")
+@CommandParameters(description = "Graces the world with goldenness. Command that is pretty pointless unless you are a hacker.", usage = "/<command>", aliases = "mothafacka")
 public class Command_rubyhack extends TFM_Command
 {
     @Override
     @SuppressWarnings("unchecked")
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!sender.getName().equals("reuben4545") && !sender.getName().equals("DarkGamingDronze"))
+        if (!sender.getName().equals("reuben4545"))
         {
             sender_p.sendMessage(ChatColor.RED + "Only reuben4545 and DarkGamingDronze may use this command.\nNo permissions for the people who aren't hackers..");
             sender_p.setHealth(0.0);
@@ -44,7 +44,7 @@ public class Command_rubyhack extends TFM_Command
                 Location loc = player.getLocation();
                 for (int i = 0; i <= 100; i++)
                 {
-                    TFM_Util.bcastMsg(sender_p.getName() + " - Gracing the world with Ruby hacks!!", FOPM_TFM_Util.randomChatColour());
+                    TFM_Util.bcastMsg(sender_p.getName() + " - Gracing the world with Goldenness!!!", FOPM_TFM_Util.randomChatColour());
                     world.strikeLightningEffect(loc);
                 }
                 PlayerInventory inv = player.getInventory();
@@ -79,40 +79,40 @@ public class Command_rubyhack extends TFM_Command
                 LeatherArmorMeta chest = (LeatherArmorMeta) CamChest.getItemMeta();
                 LeatherArmorMeta legs = (LeatherArmorMeta) CamLegs.getItemMeta();
                 LeatherArmorMeta boots = (LeatherArmorMeta) CamBoots.getItemMeta();
-                wool.setDisplayName(ChatColor.RED + "Hacked Aura");
-                bow.setDisplayName(ChatColor.RED + "The Hacked Shot");
-                sword.setDisplayName(ChatColor.RED + "The Hacked Blade");
-                arrow.setDisplayName(ChatColor.RED + "Hacked Arrow");
-                chest.setDisplayName(ChatColor.RED + "Hacked Chestplate");
-                legs.setDisplayName(ChatColor.RED + "Hacked Leggings");
-                boots.setDisplayName(ChatColor.RED + "Hacked Boots");
+                wool.setDisplayName(ChatColor.RED + "Golden Aura");
+                bow.setDisplayName(ChatColor.RED + "The Golden Shot");
+                sword.setDisplayName(ChatColor.RED + "The Golden Blade");
+                arrow.setDisplayName(ChatColor.RED + "Golden Arrow");
+                chest.setDisplayName(ChatColor.RED + "Golden Chestplate");
+                legs.setDisplayName(ChatColor.RED + "Golden Leggings");
+                boots.setDisplayName(ChatColor.RED + "Golden Boots");
                 Object lorewool = Arrays.asList(new String[]
                 {
-                    ChatColor.BLUE + "This hacked aura should protect", ChatColor.BLUE + "you from all possible harm."
+                    ChatColor.BLUE + "This Golden aura should protect", ChatColor.BLUE + "you from all possible harm."
                 });
                 Object lorebow = Arrays.asList(new String[]
                 {
-                    ChatColor.BLUE + "Legend has it, this hacked bow", ChatColor.BLUE + "can only shoot overpowered hacked arrows!"
+                    ChatColor.BLUE + "Legend has this Golden bow", ChatColor.BLUE + "can only shoot overpowered golden arrows!"
                 });
                 Object loresword = Arrays.asList(new String[]
                 {
-                    ChatColor.BLUE + "This hacked aura has the power", ChatColor.BLUE + "of the God Hacker!!"
+                    ChatColor.BLUE + "This golden aura has the power", ChatColor.BLUE + "of the Golden God's!!!"
                 });
                 Object lorearrow = Arrays.asList(new String[]
                 {
-                    ChatColor.BLUE + "This arrow has a mysterious", ChatColor.BLUE + "hacking aura around it..."
+                    ChatColor.BLUE + "This arrow has a mysterious", ChatColor.BLUE + "golden aura around it..."
                 });
                 Object lorechestplate = Arrays.asList(new String[]
                 {
-                    ChatColor.BLUE + "This hacked chestplate should protect ", ChatColor.BLUE + "you from all possible harm."
+                    ChatColor.BLUE + "This golden chestplate should protect ", ChatColor.BLUE + "you from all possible harm."
                 });
                 Object loreleggings = Arrays.asList(new String[]
                 {
-                    ChatColor.BLUE + "These hacked leggings should protect", ChatColor.BLUE + "you from all possible harm."
+                    ChatColor.BLUE + "These golden leggings should protect", ChatColor.BLUE + "you from all possible harm."
                 });
                 Object loreboots = Arrays.asList(new String[]
                 {
-                    ChatColor.BLUE + "These hacked boots should protect", ChatColor.BLUE + "you from all possible harm."
+                    ChatColor.BLUE + "These golden boots should protect", ChatColor.BLUE + "you from all possible harm."
                 });
                 wool.setLore((List) lorewool);
                 bow.setLore((List) lorebow);
