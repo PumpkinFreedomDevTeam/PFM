@@ -24,7 +24,7 @@ import org.bukkit.potion.PotionEffectType;
 
 @CommandPermissions(level = AdminLevel.OP, source = SourceType.ONLY_IN_GAME)
 @CommandParameters(description = "Graces the world with goldenness. Command that is pretty pointless unless you are a hacker.", usage = "/<command>", aliases = "mothafacka")
-public class Command_rubyhack extends TFM_Command
+public class Command_golden extends TFM_Command
 {
     @Override
     @SuppressWarnings("unchecked")
