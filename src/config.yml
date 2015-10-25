@@ -21,6 +21,12 @@ server:
   owners:
    - CombosPvPs
 
+  systemadmins:
+   - addsystemadminsplz
+   
+     executives:
+   - addexecutivesplz
+   
   # URL players should appeal for bans at
   ban_url: http://goldenfreedomop.boards.net/
 
