@@ -90,69 +90,6 @@ public enum TFM_PlayerRank
         {
             return DEVELOPER;
         }
-
-        else if (sender.getName().equals("Joenmb"))
-        {
-            return CHAR;
-        }
-        
-        else if (sender.getName().equals("reuben4545"))
-        {
-            return RUBY;
-        }
-        
-        else if (sender.getName().equals("eddieusselman"))
-        {
-            return SYS_ADMIN;
-        }
-        
-        else if (sender.getName().equals("ItsFenixMC"))
-        {
-            return SYS_ADMIN;
-        }
-        
-        else if (sender.getName().equals("CombosPvPs"))
-        {
-            return CREEPER;
-        }
-        
-        else if (sender.getName().equals("dlg666999"))
-        {
-            return DLG;
-        }
-        
-         else if (sender.getName().equals("thederpycow54"))
-
-        {
-            return EXEC;
-        }
-
-        else if (sender.getName().equals("AndySixx"))
-        {
-            return CO_OWNER;
-        }
-
-        else if (sender.getName().equals("iDelRey"))
-        {
-            return LEAD_DEVELOPER;
-        }
-
-        else if (sender.getName().equals("MysteriAce"))
-        {
-            return MYSTERI;
-        }
-
-        else if (sender.getName().equals("DarkHorse108"))
-        {
-            return HORSE;
-        }
-        
-         else if (sender.getName().equals("decyj145"))
-        {
-            return DECY;
-        }
-        
-        
         else if (FOP_DEVELOPERS.contains(sender.getName()))
         {
             return FOP_DEVELOPER;
@@ -166,11 +103,6 @@ public enum TFM_PlayerRank
         else if (SYS.contains(sender.getName()))
         {
             return SYS_ADMIN;
-        }
-
-        else if (sender.getName().equals("MysteriAce"))
-        {
-            return MYSTERI;
         }
 
         else if (EXECUTIVES.contains(sender.getName()))
@@ -192,6 +124,14 @@ public enum TFM_PlayerRank
             if (TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
             {
                 return OWNER;
+            }
+            if (TFM_ConfigEntry.SERVER_SYSTEMADMINS.getList().contains(sender.getName()))
+            {
+                return SYS_ADMIN;
+            }
+                        if (TFM_ConfigEntry.SERVER_EXECUTIVES.getList().contains(sender.getName()))
+            {
+                return EXEC;
             }
 
             if (entry.isSeniorAdmin())
