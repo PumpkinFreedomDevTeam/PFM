@@ -27,10 +27,10 @@ public class Command_say extends TFM_Command
             {
                 TFM_Util.bcastMsg("Server is going offline.", ChatColor.GRAY);
 
-                for (Player player : server.getOnlinePlayers())
+                server.getOnlinePlayers().stream().forEach((player) ->
                 {
                     player.kickPlayer("Server is going offline, come back in about 20 seconds.");
-                }
+                });
 
                 server.shutdown();
 

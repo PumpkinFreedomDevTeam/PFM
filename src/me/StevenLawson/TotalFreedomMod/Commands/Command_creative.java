@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Quickly change your own gamemode to creative, or define someone's username to change theirs.", usage = "/<command> [partialname]", aliases = "gmc")
 public class Command_creative extends TFM_Command
 {
+
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {

@@ -115,6 +115,7 @@ public class TFM_Jumppads
         TFM_Jumppads.strength = strength;
     }
 
+    @SuppressWarnings("FieldMayBeFinal")
     public static enum JumpPadMode
     {
         OFF(false), NORMAL(true), NORMAL_AND_SIDEWAYS(true), MADGEEK(true);

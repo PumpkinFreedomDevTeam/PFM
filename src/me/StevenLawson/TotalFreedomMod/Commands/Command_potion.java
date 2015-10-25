@@ -13,9 +13,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 @CommandPermissions(level = AdminLevel.OP, source = SourceType.BOTH)
-@CommandParameters(
-        description = "Manipulate potion effects. Duration is measured in server ticks (~20 ticks per second).",
-        usage = "/<command> <list | clear [target name] | add <type> <duration> <amplifier> [target name]>")
+@CommandParameters(description = "Manipulate potion effects. Duration is measured in server ticks (~20 ticks per second).", usage = "/<command> <list | clear [target name] | add <type> <duration> <amplifier> [target name]>")
 public class Command_potion extends TFM_Command
 {
     @Override
@@ -70,7 +68,7 @@ public class Command_potion extends TFM_Command
                 {
                     if (!TFM_AdminList.isSuperAdmin(sender))
                     {
-                        playerMsg("Only superadmins can clear potion effects from other players.");
+                        playerMsg("Only super admins can clear potion effects from other players.");
                         return true;
                     }
                 }
@@ -114,7 +112,7 @@ public class Command_potion extends TFM_Command
                 {
                     if (!TFM_AdminList.isSuperAdmin(sender))
                     {
-                        sender.sendMessage("Only superadmins can apply potion effects to other players.");
+                        sender.sendMessage("Only super admins can apply potion effects to other players.");
                         return true;
                     }
                 }

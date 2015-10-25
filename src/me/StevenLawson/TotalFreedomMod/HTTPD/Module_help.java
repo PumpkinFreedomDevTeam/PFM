@@ -26,6 +26,7 @@ public class Module_help extends TFM_HTTPD_Module
     }
 
     @Override
+    @SuppressWarnings("Convert2Lambda")
     public String getBody()
     {
         StringBuilder responseBody = new StringBuilder();
@@ -95,7 +96,7 @@ public class Module_help extends TFM_HTTPD_Module
             AdminLevel lastTfmCommandLevel = null;
             for (Command command : commands)
             {
-                if ("TotalFreedomMod".equals(pluginName))
+                if ("RubyFreedomMod".equals(pluginName))
                 {
                     AdminLevel tfmCommandLevel = ((TFM_DynamicCommand) command).getCommandInfo().getLevel();
                     if (lastTfmCommandLevel == null || lastTfmCommandLevel != tfmCommandLevel)
@@ -139,7 +140,7 @@ public class Module_help extends TFM_HTTPD_Module
     @Override
     public String getTitle()
     {
-        return "TotalFreedomMod :: Command Help";
+        return "RubyFreedomMod :: Command Help";
     }
 
     @Override

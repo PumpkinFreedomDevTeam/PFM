@@ -4,20 +4,20 @@ import me.StevenLawson.TotalFreedomMod.HTTPD.NanoHTTPD.Response;
 
 public class TFM_HTTPD_PageBuilder
 {
-    private static final String TEMPLATE
-            = "<!DOCTYPE html>\r\n"
+
+    private static final String TEMPLATE = "<!DOCTYPE html>\r\n"
             + "<html>\r\n"
             + "<head>\r\n"
             + "<title>{$TITLE}</title>\r\n"
             + "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n"
             + "{$STYLE}"
             + "{$SCRIPT}"
+            + "<link rel=\"stylesheet\" href=\"https://dl.dropboxusercontent.com/u/17588097/bootstrap.css\" />\r\n"
             + "</head>\r\n"
-            + "<body>\r\n{$BODY}</body>\r\n"
+            + "<body><div class=\"container\"><br/>\r\n{$BODY}</div></body>\r\n"
             + "</html>\r\n";
     private static final String STYLE = "<style type=\"text/css\">{$STYLE}</style>\r\n";
-    private static final String SCRIPT
-            = "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js\"></script>\r\n"
+    private static final String SCRIPT = "<script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js\"></script>\r\n"
             + "<script src=\"//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js\"></script>\r\n"
             + "<script>\r\n{$SCRIPT}\r\n</script>\r\n";
     //

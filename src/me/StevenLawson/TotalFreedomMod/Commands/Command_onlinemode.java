@@ -1,8 +1,8 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import me.StevenLawson.TotalFreedomMod.TFM_ServerInterface;
-import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -52,7 +52,7 @@ public class Command_onlinemode extends TFM_Command
                 {
                     for (Player player : server.getOnlinePlayers())
                     {
-                        player.kickPlayer("Server is activating \"online-mode=true\". Please reconnect.");
+                        player.kickPlayer(ChatColor.GOLD + "[RubyFreedom]" + ChatColor.WHITE + "Server is activating \"online-mode=true\". Please reconnect.");
                     }
                 }
 

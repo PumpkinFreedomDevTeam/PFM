@@ -54,9 +54,10 @@ public class Module_schematic extends TFM_HTTPD_Module
 
     public String title()
     {
-        return "TotalFreedomMod :: Schematic Manager";
+        return "RubyFreedomMod :: Schematic Manager";
     }
 
+    @SuppressWarnings("Convert2Lambda")
     public String body() throws ResponseOverrideException
     {
         if (!SCHEMATIC_FOLDER.exists())
@@ -124,7 +125,7 @@ public class Module_schematic extends TFM_HTTPD_Module
                 final String remoteAddress = socket.getInetAddress().getHostAddress();
                 if (!isAuthorized(remoteAddress))
                 {
-                    out.append(HTMLGenerationTools.paragraph("Schematic upload access denied: Your IP, " + remoteAddress + ", is not registered to a superadmin on this server."));
+                    out.append(HTMLGenerationTools.paragraph("Schematic upload access denied: Your IP, " + remoteAddress + ", is not registered to a super admin on this server."));
                 }
                 else
                 {

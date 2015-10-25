@@ -3,6 +3,7 @@ package me.StevenLawson.TotalFreedomMod;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@SuppressWarnings("NonConstantLogger")
 public class TFM_Log
 {
     private static final Logger FALLBACK_LOGGER = Logger.getLogger("Minecraft-Server");
@@ -33,7 +34,7 @@ public class TFM_Log
     // Level.WARNING:
     public static void warning(String message)
     {
-        info(message, false);
+        warning(message, false);
     }
 
     public static void warning(String message, Boolean raw)
@@ -49,7 +50,7 @@ public class TFM_Log
     // Level.SEVERE:
     public static void severe(String message)
     {
-        info(message, false);
+        severe(message, false);
     }
 
     public static void severe(String message, Boolean raw)
@@ -93,5 +94,15 @@ public class TFM_Log
         {
             return pluginLogger;
         }
+    }
+
+    public static Logger getPluginLogger()
+    {
+        return (pluginLogger != null ? pluginLogger : FALLBACK_LOGGER);
+    }
+
+    public static Logger getServerLogger()
+    {
+        return (serverLogger != null ? serverLogger : FALLBACK_LOGGER);
     }
 }

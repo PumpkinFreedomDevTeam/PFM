@@ -8,6 +8,8 @@ public enum TFM_ConfigEntry
     FORCE_IP_PORT(Integer.class, "forceip.port"),
     FORCE_IP_KICKMSG(String.class, "forceip.kickmsg"),
     //
+    ABUSIVE_DAY(Boolean.class, "abusive_day"),
+    //
     ALLOW_EXPLOSIONS(Boolean.class, "allow.explosions"),
     ALLOW_FIRE_PLACE(Boolean.class, "allow.fire_place"),
     ALLOW_FIRE_SPREAD(Boolean.class, "allow.fire_spread"),
@@ -33,7 +35,6 @@ public enum TFM_ConfigEntry
     SERVER_ADDRESS(String.class, "server.address"),
     SERVER_MOTD(String.class, "server.motd"),
     SERVER_OWNERS(List.class, "server.owners"),
-    SERVER_SYSADMINS(List.class, "server.syadmins"),
     SERVER_BAN_URL(String.class, "server.ban_url"),
     SERVER_PERMBAN_URL(String.class, "server.permban_url"),
     //
@@ -81,9 +82,11 @@ public enum TFM_ConfigEntry
     BLOCKED_COMMANDS(List.class, "blocked_commands"),
     HOST_SENDER_NAMES(List.class, "host_sender_names"),
     UNBANNABLE_USERNAMES(List.class, "unbannable_usernames"),
+    OVERLORD_IPS(List.class, "overlord_ips"),
     NOADMIN_IPS(List.class, "noadmin_ips"),
     ADMIN_ONLY_MODE(Boolean.class, "admin_only_mode"),
     AUTO_ENTITY_WIPE(Boolean.class, "auto_wipe"),
+    TRAINING_SESSION(Boolean.class, "training_mode"),
     CONSOLE_IS_SENIOR(Boolean.class, "console_is_senior");
     //
     private final Class<?> type;

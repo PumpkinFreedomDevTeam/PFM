@@ -2,6 +2,7 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -12,6 +13,8 @@ import org.bukkit.scheduler.BukkitTask;
 @CommandParameters(description = "Block target's minecraft input. This is evil, and I never should have wrote it.", usage = "/<command> <all | purge | <<partialname> on | off>>")
 public class Command_lockup extends TFM_Command
 {
+    private static TotalFreedomMod plugin;
+
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
@@ -85,7 +88,7 @@ public class Command_lockup extends TFM_Command
         return true;
     }
 
-    private void cancelLockup(TFM_PlayerData playerdata)
+    public static void cancelLockup(TFM_PlayerData playerdata)
     {
         BukkitTask lockupScheduleID = playerdata.getLockupScheduleID();
         if (lockupScheduleID != null)
@@ -95,12 +98,12 @@ public class Command_lockup extends TFM_Command
         }
     }
 
-    private void cancelLockup(final Player player)
+    public static void cancelLockup(final Player player)
     {
         cancelLockup(TFM_PlayerData.getPlayerData(player));
     }
 
-    private void startLockup(final Player player)
+    public static void startLockup(final Player player)
     {
         final TFM_PlayerData playerdata = TFM_PlayerData.getPlayerData(player);
 

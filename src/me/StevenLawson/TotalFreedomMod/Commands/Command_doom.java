@@ -3,6 +3,7 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Ban;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
+import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import org.bukkit.ChatColor;
@@ -13,13 +14,19 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
-@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.ONLY_CONSOLE)
+@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "For the bad Superadmins", usage = "/<command> <playername>")
 public class Command_doom extends TFM_Command
 {
     @Override
     public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
+        if (senderIsConsole)
+        {
+            TFM_Log.info("No abuse you stupid prick.");
+            return true;
+        }
+
         if (args.length != 1)
         {
             return false;
@@ -71,7 +78,7 @@ public class Command_doom extends TFM_Command
         player.setFireTicks(10000);
 
         // generate explosion
-        player.getWorld().createExplosion(player.getLocation(), 4F);
+        player.getWorld().createExplosion(player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), 4f, false, false);
 
         // Shoot the player in the sky
         player.setVelocity(player.getVelocity().clone().add(new Vector(0, 20, 0)));
@@ -98,7 +105,7 @@ public class Command_doom extends TFM_Command
                 TFM_Util.adminAction(sender.getName(), "Banning " + player.getName() + ", IP: " + ip, true);
 
                 // generate explosion
-                player.getWorld().createExplosion(player.getLocation(), 4F);
+                player.getWorld().createExplosion(player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), 5f, false, false);
 
                 // kick player
                 player.kickPlayer(ChatColor.RED + "FUCKOFF, and get your shit together!");

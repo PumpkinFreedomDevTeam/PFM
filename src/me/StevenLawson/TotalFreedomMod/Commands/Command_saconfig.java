@@ -57,6 +57,12 @@ public class Command_saconfig extends TFM_Command
             {
                 final TFM_Admin admin = TFM_AdminList.getEntry(sender_p);
 
+                if (admin == null)
+                {
+                    playerMsg("Could not find your admin entry! Please notify a developer.", ChatColor.RED);
+                    return true;
+                }
+
                 final String ip = TFM_Util.getIp(sender_p);
 
                 if (args.length == 1)
@@ -165,7 +171,7 @@ public class Command_saconfig extends TFM_Command
                     targetName = player.getName();
                 }
 
-                if (!TFM_AdminList.getLowerSuperNames().contains(targetName.toLowerCase()))
+                if (!TFM_AdminList.getLowercaseSuperNames().contains(targetName.toLowerCase()))
                 {
                     playerMsg("Superadmin not found: " + targetName);
                     return true;

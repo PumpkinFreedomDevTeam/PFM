@@ -1,11 +1,26 @@
 package me.StevenLawson.TotalFreedomMod.Listener;
 
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
-import org.bukkit.entity.*;
+import org.bukkit.entity.Bat;
+import org.bukkit.entity.EnderDragon;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Ghast;
+import org.bukkit.entity.Giant;
+import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Projectile;
+import org.bukkit.entity.Slime;
+import org.bukkit.entity.Tameable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.*;
+import org.bukkit.event.entity.CreatureSpawnEvent;
+import org.bukkit.event.entity.EntityCombustEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.entity.ExplosionPrimeEvent;
+import org.bukkit.event.entity.ProjectileHitEvent;
 
 public class TFM_EntityListener implements Listener
 {
@@ -22,6 +37,7 @@ public class TFM_EntityListener implements Listener
     }
 
     @EventHandler(priority = EventPriority.HIGH)
+    @SuppressWarnings("UnnecessaryUnboxing")
     public void onExplosionPrime(ExplosionPrimeEvent event)
     {
         if (!TFM_ConfigEntry.ALLOW_EXPLOSIONS.getBoolean())
@@ -121,6 +137,7 @@ public class TFM_EntityListener implements Listener
                 return;
             }
 
+            @SuppressWarnings("UnnecessaryUnboxing")
             int mobLimiterMax = TFM_ConfigEntry.MOB_LIMITER_MAX.getInteger().intValue();
 
             if (mobLimiterMax > 0)

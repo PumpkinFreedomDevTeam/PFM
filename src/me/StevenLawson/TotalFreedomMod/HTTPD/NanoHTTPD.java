@@ -113,6 +113,7 @@ public abstract class NanoHTTPD
 
     /**
      * Constructs an HTTP server on given port.
+     * @param port
      */
     public NanoHTTPD(int port)
     {
@@ -121,7 +122,10 @@ public abstract class NanoHTTPD
 
     /**
      * Constructs an HTTP server on given hostname and port.
+     * @param hostname
+     * @param port
      */
+    @SuppressWarnings("OverridableMethodCallInConstructor")
     public NanoHTTPD(String hostname, int port)
     {
         this.hostname = hostname;
@@ -130,6 +134,7 @@ public abstract class NanoHTTPD
         setAsyncRunner(new DefaultAsyncRunner());
     }
 
+    @SuppressWarnings("FinalPrivateMethod")
     private static final void safeClose(ServerSocket serverSocket)
     {
         if (serverSocket != null)
@@ -144,6 +149,7 @@ public abstract class NanoHTTPD
         }
     }
 
+    @SuppressWarnings("FinalPrivateMethod")
     private static final void safeClose(Socket socket)
     {
         if (socket != null)
@@ -158,6 +164,7 @@ public abstract class NanoHTTPD
         }
     }
 
+    @SuppressWarnings("FinalPrivateMethod")
     private static final void safeClose(Closeable closeable)
     {
         if (closeable != null)
@@ -177,6 +184,7 @@ public abstract class NanoHTTPD
      *
      * @throws IOException if the socket is in use.
      */
+    @SuppressWarnings("Convert2Lambda")
     public void start() throws IOException
     {
         myServerSocket = new ServerSocket();
@@ -287,6 +295,7 @@ public abstract class NanoHTTPD
      * @param method  "GET", "POST" etc.
      * @param parms   Parsed, percent decoded parameters from URI and, in case of POST, data.
      * @param headers Header entries, percent decoded
+     * @param files
      * @return HTTP response, see class Response for details
      */
     @Deprecated
@@ -624,6 +633,7 @@ public abstract class NanoHTTPD
 
         /**
          * Default constructor: response = HTTP_OK, mime = MIME_HTML and your supplied message
+         * @param msg
          */
         public Response(String msg)
         {
@@ -632,6 +642,9 @@ public abstract class NanoHTTPD
 
         /**
          * Basic constructor.
+         * @param status
+         * @param mimeType
+         * @param data
          */
         public Response(Status status, String mimeType, InputStream data)
         {
@@ -642,6 +655,9 @@ public abstract class NanoHTTPD
 
         /**
          * Convenience method that makes an InputStream out of given text.
+         * @param status
+         * @param mimeType
+         * @param txt
          */
         public Response(Status status, String mimeType, String txt)
         {
@@ -659,6 +675,8 @@ public abstract class NanoHTTPD
 
         /**
          * Adds given line to the header.
+         * @param name
+         * @param value
          */
         public void addHeader(String name, String value)
         {
@@ -993,6 +1011,7 @@ public abstract class NanoHTTPD
             }
         }
 
+        @SuppressWarnings("null")
         protected void parseBody(Map<String, String> files) throws IOException, ResponseException
         {
             RandomAccessFile randomAccessFile = null;
@@ -1492,6 +1511,7 @@ public abstract class NanoHTTPD
      *
      * @author LordFokas
      */
+    @SuppressWarnings("FieldMayBeFinal")
     public class CookieHandler implements Iterable<String>
     {
         private HashMap<String, String> cookies = new HashMap<String, String>();

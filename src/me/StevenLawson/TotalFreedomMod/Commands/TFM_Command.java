@@ -1,8 +1,10 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
+import java.util.Collection;
+import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
+import me.StevenLawson.TotalFreedomMod.TFM_DonatorList;
 import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
-import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.ChatColor;
@@ -13,11 +15,11 @@ import org.bukkit.entity.Player;
 
 public abstract class TFM_Command
 {
-    public static final String MSG_NO_PERMS = ChatColor.YELLOW + "You do not have permission to use this command.";
-    public static final String YOU_ARE_OP = ChatColor.YELLOW + "You are now op!";
-    public static final String YOU_ARE_NOT_OP = ChatColor.YELLOW + "You are no longer op!";
+    public static final String MSG_NO_PERMS = ChatColor.RED + "We're sorry, but you do not have access to this command.";
+    public static final String YOU_ARE_OP = ChatColor.BLUE + "You are now a operator!";
+    public static final String YOU_ARE_NOT_OP = ChatColor.GREEN + "You are no longer a operator!";
     public static final String NOT_FROM_CONSOLE = "This command may not be used from the console.";
-    public static final String PLAYER_NOT_FOUND = ChatColor.GRAY + "Player not found!";
+    public static final String PLAYER_NOT_FOUND = ChatColor.RED + "We're sorry, but the player you're searching for cannot be found!";
     protected TotalFreedomMod plugin;
     protected Server server;
     private CommandSender commandSender;
@@ -71,12 +73,19 @@ public abstract class TFM_Command
             return true;
         }
 
+        boolean isDonator = TFM_DonatorList.isDonator(commandSender);
+        boolean isDonatorPlus = false;
         boolean isSuper = TFM_AdminList.isSuperAdmin(commandSender);
         boolean isSenior = false;
 
         if (isSuper)
         {
             isSenior = TFM_AdminList.isSeniorAdmin(commandSender);
+        }
+
+        if (isDonator)
+        {
+            isDonatorPlus = TFM_DonatorList.isDonatorPlus(commandSender);
         }
 
         final AdminLevel level = permissions.level();
@@ -130,6 +139,16 @@ public abstract class TFM_Command
             return false;
         }
 
+        if (level == AdminLevel.DONATOR && !isDonator)
+        {
+            return false;
+        }
+
+        if (level == AdminLevel.DONATORP && !isDonatorPlus)
+        {
+            return false;
+        }
+
         if (level == AdminLevel.OP && !senderPlayer.isOp())
         {
             return false;
@@ -150,7 +169,7 @@ public abstract class TFM_Command
             return null;
         }
 
-        final Player[] players = server.getOnlinePlayers();
+        final Collection<? extends Player> players = server.getOnlinePlayers();
 
         // Check exact matches first.
         for (final Player player : players)

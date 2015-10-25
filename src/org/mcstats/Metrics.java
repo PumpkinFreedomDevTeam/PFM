@@ -55,6 +55,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 public class Metrics
 {
+
     /**
      * The current revision number
      */
@@ -201,6 +202,7 @@ public class Metrics
             {
                 private boolean firstPost = true;
 
+                @Override
                 public void run()
                 {
                     try
@@ -358,7 +360,7 @@ public class Metrics
         boolean onlineMode = Bukkit.getServer().getOnlineMode(); // TRUE if online mode is enabled
         String pluginVersion = description.getVersion();
         String serverVersion = Bukkit.getVersion();
-        int playersOnline = Bukkit.getServer().getOnlinePlayers().length;
+        int playersOnline = Bukkit.getServer().getOnlinePlayers().size();
 
         // END server software specific section -- all code below does not use any code outside of this class / Java
         // Construct the post data
@@ -695,6 +697,7 @@ public class Metrics
      */
     public static class Graph
     {
+
         /**
          * The graph's name, alphanumeric and spaces only :) If it does not comply to the above when submitted, it is
          * rejected
@@ -781,6 +784,7 @@ public class Metrics
      */
     public static abstract class Plotter
     {
+
         /**
          * The plot's name
          */
@@ -848,4 +852,5 @@ public class Metrics
             return plotter.name.equals(name) && plotter.getValue() == getValue();
         }
     }
+
 }

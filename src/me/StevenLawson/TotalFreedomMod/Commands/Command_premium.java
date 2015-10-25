@@ -16,6 +16,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class Command_premium extends TFM_Command
 {
     @Override
+    @SuppressWarnings("ConvertToTryWithResources")
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         if (args.length != 1)
@@ -38,6 +39,7 @@ public class Command_premium extends TFM_Command
         new BukkitRunnable()
         {
             @Override
+            @SuppressWarnings("UseSpecificCatch")
             public void run()
             {
                 try

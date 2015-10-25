@@ -42,6 +42,10 @@ public class CleanroomChunkGenerator extends ChunkGenerator
         this("64,stone");
     }
 
+    @SuppressWarnings(
+            {
+                "LoggerStringConcat", "CallToPrintStackTrace"
+            })
     public CleanroomChunkGenerator(String id)
     {
         if (id != null)
@@ -181,6 +185,7 @@ public class CleanroomChunkGenerator extends ChunkGenerator
     }
 
     @Override
+    @SuppressWarnings("LoggerStringConcat")
     public short[][] generateExtBlockSections(World world, Random random, int x, int z, BiomeGrid biomes)
     {
         int maxHeight = world.getMaxHeight();

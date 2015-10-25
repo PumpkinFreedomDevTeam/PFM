@@ -1,13 +1,12 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
-import me.StevenLawson.TotalFreedomMod.Bridge.TFM_WorldEditBridge;
 import me.StevenLawson.TotalFreedomMod.TFM_Ban;
 import me.StevenLawson.TotalFreedomMod.TFM_BanManager;
-import me.StevenLawson.TotalFreedomMod.TFM_RollbackManager;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_UuidManager;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -15,7 +14,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
+@CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH, blockHostConsole = true)
 @CommandParameters(description = "Makes someone GTFO (deop and ip ban by username).", usage = "/<command> <partialname>")
 public class Command_gtfo extends TFM_Command
 {
@@ -43,18 +42,22 @@ public class Command_gtfo extends TFM_Command
 
         TFM_Util.bcastMsg(player.getName() + " has been a VERY naughty, naughty boy.", ChatColor.RED);
 
+        // Silently rollback the user with CoreProtect
+        Bukkit.dispatchCommand(sender, "co rb u:" + player.getName() + " t:24h r:global #silent");
+
+        // Disabled TFM RollbackManager and WorldEdit undones due to Coreprotect is handle it now.
         // Undo WorldEdits:
-        try
-        {
-            TFM_WorldEditBridge.undo(player, 15);
-        }
-        catch (NoClassDefFoundError ex)
-        {
-        }
+        /*       try
+         {
+         TFM_WorldEditBridge.undo(player, 15);
+         }
+         catch (NoClassDefFoundError ex)
+         {
+         }
 
-        // rollback
-        TFM_RollbackManager.rollback(player.getName());
-
+         // rollback
+         TFM_RollbackManager.rollback(player.getName());
+         */
         // deop
         player.setOp(false);
 
@@ -80,6 +83,8 @@ public class Command_gtfo extends TFM_Command
 
         final StringBuilder bcast = new StringBuilder()
                 .append(ChatColor.RED)
+                .append(sender.getName())
+                .append(" - ")
                 .append("Banning: ")
                 .append(player.getName())
                 .append(", IP: ")
@@ -87,7 +92,7 @@ public class Command_gtfo extends TFM_Command
 
         if (reason != null)
         {
-            bcast.append(" - Reason: ").append(ChatColor.YELLOW).append(reason);
+            bcast.append("\nReason: ").append(ChatColor.YELLOW).append(reason).append(" (").append(sender.getName()).append(")");
         }
 
         TFM_Util.bcastMsg(bcast.toString());
@@ -98,7 +103,7 @@ public class Command_gtfo extends TFM_Command
         TFM_BanManager.addUuidBan(new TFM_Ban(TFM_UuidManager.getUniqueId(player), player.getName(), sender.getName(), null, reason));
 
         // kick Player:
-        player.kickPlayer(ChatColor.RED + "GTFO" + (reason != null ? ("\nReason: " + ChatColor.YELLOW + reason) : ""));
+        player.kickPlayer(ChatColor.RED + "You have been banned (GTFO)" + (reason != null ? ("\nReason: " + ChatColor.YELLOW + reason + "(" + sender.getName() + ")") : ""));
 
         return true;
     }

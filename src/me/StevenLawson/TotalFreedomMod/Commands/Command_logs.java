@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
-import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import me.StevenLawson.TotalFreedomMod.TFM_Admin;
+import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.ChatColor;
@@ -57,6 +57,7 @@ public class Command_logs extends TFM_Command
         new BukkitRunnable()
         {
             @Override
+            @SuppressWarnings("UseSpecificCatch")
             public void run()
             {
                 try

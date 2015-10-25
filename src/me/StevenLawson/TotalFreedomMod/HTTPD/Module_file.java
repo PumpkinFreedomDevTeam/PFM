@@ -64,6 +64,7 @@ public class Module_file extends TFM_HTTPD_Module
         return rootDir;
     }
 
+    @SuppressWarnings("ConvertToStringSwitch")
     private String encodeUri(String uri)
     {
         String newUri = "";
@@ -284,12 +285,18 @@ public class Module_file extends TFM_HTTPD_Module
     private String listDirectory(String uri, File f)
     {
         String heading = "Directory " + uri;
-        String msg = "<html><head><title>" + heading + "</title><style><!--\n"
+        String msg = "<html>\n"
+                + "<head>\n"
+                + "<title>" + heading + "</title>\n"
+                + "<style><!--\n"
                 + "span.dirname { font-weight: bold; }\n"
                 + "span.filesize { font-size: 75%; }\n"
                 + "// -->\n"
-                + "</style>"
-                + "</head><body><h1>" + heading + "</h1>";
+                + "</style>\n"
+                + "<link rel='stylesheet' href='https://dl.dropboxusercontent.com/u/17588097/bootstrap.css' />\n"
+                + "</head>\n"
+                + "<body>\n"
+                + "<h1>" + heading + "</h1>\n";
 
         String up = null;
         if (uri.length() > 1)
@@ -302,6 +309,7 @@ public class Module_file extends TFM_HTTPD_Module
             }
         }
 
+        @SuppressWarnings("Convert2Lambda")
         List<String> _files = Arrays.asList(f.list(new FilenameFilter()
         {
             @Override
@@ -311,6 +319,7 @@ public class Module_file extends TFM_HTTPD_Module
             }
         }));
         Collections.sort(_files);
+        @SuppressWarnings("Convert2Lambda")
         List<String> directories = Arrays.asList(f.list(new FilenameFilter()
         {
             @Override

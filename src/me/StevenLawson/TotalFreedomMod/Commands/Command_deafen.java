@@ -1,6 +1,7 @@
 package me.StevenLawson.TotalFreedomMod.Commands;
 
 import java.util.Random;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -8,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.BOTH, blockHostConsole = true)
+@CommandPermissions(level = AdminLevel.SENIOR, source = SourceType.BOTH)
 @CommandParameters(description = "Make some noise.", usage = "/<command>")
 public class Command_deafen extends TFM_Command
 {
@@ -34,6 +35,8 @@ public class Command_deafen extends TFM_Command
                 }.runTaskLater(plugin, Math.round(20.0 * percent * 2.0));
             }
         }
+        
+       sender.sendMessage(ChatColor.RED + "If you abuse deafen, You're done for RubyFreedom");
 
         return true;
     }

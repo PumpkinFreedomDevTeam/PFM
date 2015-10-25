@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
+import me.confuser.barapi.BarAPI;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -59,7 +60,7 @@ public class Command_invis extends TFM_Command
         }
         else
         {
-            playerMsg("Invisble players (" + players.size() + "): " + StringUtils.join(players, ", "));
+            playerMsg("Invisible players (" + players.size() + "): " + StringUtils.join(players, ", "));
         }
 
         return true;

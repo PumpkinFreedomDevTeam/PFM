@@ -19,7 +19,6 @@ import org.bukkit.util.Vector;
 
 public class TFM_ProtectedArea
 {
-
     public static final double MAX_RADIUS = 50.0;
     private static final Map<String, SerializableProtectedRegion> PROTECTED_AREAS = new HashMap<String, SerializableProtectedRegion>();
 
@@ -28,6 +27,7 @@ public class TFM_ProtectedArea
         throw new AssertionError();
     }
 
+    @SuppressWarnings("UnusedAssignment")
     public static boolean isInProtectedArea(final Location modifyLocation)
     {
         boolean doSave = false;
@@ -67,12 +67,13 @@ public class TFM_ProtectedArea
 
         if (doSave)
         {
-            saveProtectedAreas();
+            save();
         }
 
         return inProtectedArea;
     }
 
+    @SuppressWarnings("UnusedAssignment")
     public static boolean isInProtectedArea(final Vector min, final Vector max, final String worldName)
     {
         boolean doSave = false;
@@ -111,7 +112,7 @@ public class TFM_ProtectedArea
 
         if (doSave)
         {
-            saveProtectedAreas();
+            save();
         }
 
         return inProtectedArea;
@@ -157,13 +158,13 @@ public class TFM_ProtectedArea
     public static void addProtectedArea(String label, Location location, double radius)
     {
         TFM_ProtectedArea.PROTECTED_AREAS.put(label.toLowerCase(), new SerializableProtectedRegion(location, radius));
-        saveProtectedAreas();
+        save();
     }
 
     public static void removeProtectedArea(String label)
     {
         TFM_ProtectedArea.PROTECTED_AREAS.remove(label.toLowerCase());
-        saveProtectedAreas();
+        save();
     }
 
     public static void clearProtectedAreas()
@@ -180,7 +181,7 @@ public class TFM_ProtectedArea
             autoAddSpawnpoints();
         }
 
-        saveProtectedAreas();
+        save();
     }
 
     public static void cleanProtectedAreas()
@@ -204,7 +205,7 @@ public class TFM_ProtectedArea
 
         if (doSave)
         {
-            saveProtectedAreas();
+            save();
         }
     }
 
@@ -213,7 +214,8 @@ public class TFM_ProtectedArea
         return TFM_ProtectedArea.PROTECTED_AREAS.keySet();
     }
 
-    public static void saveProtectedAreas()
+    @SuppressWarnings("ConvertToTryWithResources")
+    public static void save()
     {
         try
         {
@@ -229,9 +231,17 @@ public class TFM_ProtectedArea
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public static void loadProtectedAreas()
+    @SuppressWarnings(
+            {
+                "unchecked", "ConvertToTryWithResources", "UseSpecificCatch"
+            })
+    public static void load()
     {
+        if (!TFM_ConfigEntry.PROTECTAREA_ENABLED.getBoolean())
+        {
+            return;
+        }
+
         File input = new File(TotalFreedomMod.plugin.getDataFolder(), TotalFreedomMod.PROTECTED_AREA_FILENAME);
         try
         {
@@ -256,6 +266,11 @@ public class TFM_ProtectedArea
 
     public static void autoAddSpawnpoints()
     {
+        if (!TFM_ConfigEntry.PROTECTAREA_ENABLED.getBoolean())
+        {
+            return;
+        }
+
         if (TFM_ConfigEntry.PROTECTAREA_SPAWNPOINTS.getBoolean())
         {
             for (World world : Bukkit.getWorlds())
@@ -267,7 +282,6 @@ public class TFM_ProtectedArea
 
     public static class SerializableProtectedRegion implements Serializable
     {
-
         private final double x, y, z;
         private final double radius;
         private final String worldName;
@@ -313,7 +327,6 @@ public class TFM_ProtectedArea
 
         public static class CantFindWorldException extends Exception
         {
-
             private static final long serialVersionUID = 1L;
 
             public CantFindWorldException(String string)
@@ -321,7 +334,5 @@ public class TFM_ProtectedArea
                 super(string);
             }
         }
-
     }
-
 }

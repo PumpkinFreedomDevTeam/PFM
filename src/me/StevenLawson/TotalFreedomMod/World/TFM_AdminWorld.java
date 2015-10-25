@@ -1,7 +1,5 @@
 package me.StevenLawson.TotalFreedomMod.World;
 
-import me.StevenLawson.TotalFreedomMod.World.TFM_CustomWorld;
-import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,12 +7,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_GameRuleHandler;
 import me.StevenLawson.TotalFreedomMod.TFM_Log;
 import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.apache.commons.lang3.StringUtils;
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.WorldCreator;
+import org.bukkit.WorldType;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.command.CommandSender;
@@ -73,7 +77,7 @@ public final class TFM_AdminWorld extends TFM_CustomWorld
         org.bukkit.material.Sign signData = (org.bukkit.material.Sign) welcomeSign.getData();
         signData.setFacingDirection(BlockFace.NORTH);
 
-        welcomeSign.setLine(0, ChatColor.GREEN + "AdminWorld");
+        welcomeSign.setLine(0, ChatColor.GREEN + "Admin World");
         welcomeSign.setLine(1, ChatColor.DARK_GRAY + "---");
         welcomeSign.setLine(2, ChatColor.YELLOW + "Spawn Point");
         welcomeSign.setLine(3, ChatColor.DARK_GRAY + "---");
@@ -146,6 +150,7 @@ public final class TFM_AdminWorld extends TFM_CustomWorld
         wipeAccessCache();
     }
 
+    @SuppressWarnings("UnnecessaryUnboxing")
     public boolean validateMovement(PlayerMoveEvent event)
     {
         World world;
@@ -168,7 +173,7 @@ public final class TFM_AdminWorld extends TFM_CustomWorld
                 if (lastTP == null || lastTP.longValue() + TP_COOLDOWN_TIME <= currentTimeMillis)
                 {
                     teleportCooldown.put(player, currentTimeMillis);
-                    TFM_Log.info(player.getName() + " attempted to access the AdminWorld.");
+                    TFM_Log.info(player.getName() + " attempted to access the admin world.");
                     new BukkitRunnable()
                     {
                         @Override
@@ -192,6 +197,7 @@ public final class TFM_AdminWorld extends TFM_CustomWorld
         accessCache.clear();
     }
 
+    @SuppressWarnings("UnnecessaryUnboxing")
     public boolean canAccessWorld(final Player player)
     {
         long currentTimeMillis = System.currentTimeMillis();

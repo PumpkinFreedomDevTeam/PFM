@@ -3,7 +3,6 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 import me.StevenLawson.TotalFreedomMod.TFM_AdminList;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import me.StevenLawson.TotalFreedomMod.TFM_Util;
-import me.StevenLawson.TotalFreedomMod.TotalFreedomMod;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -12,61 +11,44 @@ import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
 @CommandParameters(description = "Freeze players (toggles on and off).", usage = "/<command> [target | purge]")
-public class Command_fr extends TFM_Command
-{
+public class Command_fr extends TFM_Command {
+
+    private static boolean allFrozen = false;
+
     @Override
-    public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
-    {
-        if (args.length == 0)
-        {
-            TotalFreedomMod.allPlayersFrozen = !TotalFreedomMod.allPlayersFrozen;
+    public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole) {
+        if (args.length == 0) {
+            allFrozen = !allFrozen;
 
-            if (TotalFreedomMod.allPlayersFrozen)
-            {
+            if (allFrozen) {
                 TFM_Util.adminAction(sender.getName(), "Freezing all players", false);
-                TotalFreedomMod.allPlayersFrozen = true;
 
+                setAllFrozen(true);
                 playerMsg("Players are now frozen.");
-                for (Player player : Bukkit.getOnlinePlayers())
-                {
-                    if (!TFM_AdminList.isSuperAdmin(player))
-                    {
-                        playerMsg(player, "You have been frozen due to rule breaker(s), you will be unfrozen very soon.", ChatColor.RED);
+
+                for (Player player : Bukkit.getOnlinePlayers()) {
+                    if (!TFM_AdminList.isSuperAdmin(player)) {
+                        playerMsg(player, "You have been frozen due to rulebreakers, you will be unfrozen soon.", ChatColor.RED);
                     }
                 }
-            }
-            else
-            {
+            } else {
                 TFM_Util.adminAction(sender.getName(), "Unfreezing all players", false);
-                TotalFreedomMod.allPlayersFrozen = false;
+                setAllFrozen(false);
                 playerMsg("Players are now free to move.");
             }
-        }
-        else
-        {
-            if (args[0].toLowerCase().equals("purge"))
-            {
-                TotalFreedomMod.allPlayersFrozen = false;
-
-                for (Player player : server.getOnlinePlayers())
-                {
-                    TFM_PlayerData playerdata = TFM_PlayerData.getPlayerData(player);
-                    playerdata.setFrozen(false);
-                }
-
-                TFM_Util.adminAction(sender.getName(), "Lifting all global and player freezes", false);
-            }
-            else
-            {
+        } else {
+            if (args[0].toLowerCase().equals("purge")) {
+                setAllFrozen(false);
+                TFM_Util.adminAction(sender.getName(), "Unfreezing all players", false);
+            } else {
                 final Player player = getPlayer(args[0]);
 
-                if (player == null)
-                {
+                if (player == null) {
                     playerMsg(TFM_Command.PLAYER_NOT_FOUND, ChatColor.RED);
                     return true;
                 }
 
-                TFM_PlayerData playerdata = TFM_PlayerData.getPlayerData(player);
+                final TFM_PlayerData playerdata = TFM_PlayerData.getPlayerData(player);
                 playerdata.setFrozen(!playerdata.isFrozen());
 
                 playerMsg(player.getName() + " has been " + (playerdata.isFrozen() ? "frozen" : "unfrozen") + ".");
@@ -75,5 +57,12 @@ public class Command_fr extends TFM_Command
         }
 
         return true;
+    }
+
+    public static void setAllFrozen(boolean freeze) {
+        allFrozen = freeze;
+        for (TFM_PlayerData data : TFM_PlayerData.PLAYER_DATA.values()) {
+            data.setFrozen(freeze);
+        }
     }
 }

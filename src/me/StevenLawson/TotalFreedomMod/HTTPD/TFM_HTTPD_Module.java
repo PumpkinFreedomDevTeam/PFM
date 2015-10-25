@@ -3,7 +3,9 @@ package me.StevenLawson.TotalFreedomMod.HTTPD;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
-import me.StevenLawson.TotalFreedomMod.HTTPD.NanoHTTPD.*;
+import me.StevenLawson.TotalFreedomMod.HTTPD.NanoHTTPD.HTTPSession;
+import me.StevenLawson.TotalFreedomMod.HTTPD.NanoHTTPD.Method;
+import me.StevenLawson.TotalFreedomMod.HTTPD.NanoHTTPD.Response;
 import me.StevenLawson.TotalFreedomMod.TFM_Log;
 
 public abstract class TFM_HTTPD_Module
@@ -50,6 +52,7 @@ public abstract class TFM_HTTPD_Module
         return new TFM_HTTPD_PageBuilder(getBody(), getTitle(), getStyle(), getScript()).getResponse();
     }
 
+    @SuppressWarnings("UseSpecificCatch")
     protected final Map<String, String> getFiles()
     {
         Map<String, String> files = new HashMap<String, String>();

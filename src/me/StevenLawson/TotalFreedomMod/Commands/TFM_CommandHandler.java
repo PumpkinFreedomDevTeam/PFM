@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 
 public class TFM_CommandHandler
 {
+
     public static final String COMMAND_PATH = TFM_Command.class.getPackage().getName(); // "me.StevenLawson.TotalFreedomMod.Commands";
     public static final String COMMAND_PREFIX = "Command_";
 

@@ -1,10 +1,10 @@
 package me.StevenLawson.TotalFreedomMod;
 
-import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
@@ -34,6 +34,7 @@ public class TFM_TwitterHandler
         return request("action=deltwitter&player=" + player);
     }
 
+    @SuppressWarnings("ConvertToStringSwitch")
     public static void delTwitterVerbose(String targetName, CommandSender sender)
     {
         final String reply = delTwitter(targetName);
@@ -77,6 +78,7 @@ public class TFM_TwitterHandler
         return request("action=setstatus&status=" + status);
     }
 
+    @SuppressWarnings("ConvertToTryWithResources")
     private static String request(String queryString)
     {
         String line = "failed";

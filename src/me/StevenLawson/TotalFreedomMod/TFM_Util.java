@@ -13,8 +13,6 @@ import java.lang.reflect.Field;
 import java.net.URL;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,6 +32,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_Config;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
+import static me.StevenLawson.TotalFreedomMod.TFM_HardcodeBanList.HARDCODE;
+import static me.StevenLawson.TotalFreedomMod.TFM_HardcodeBanList.HARDCODE_IPS;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.Bukkit;
@@ -69,11 +69,15 @@ public class TFM_Util
     private static final Map<String, Integer> ejectTracker = new HashMap<String, Integer>();
     public static final Map<String, EntityType> mobtypes = new HashMap<String, EntityType>();
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
-    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "DarthSalamon", "AcidicCyanide", "wild1145", "WickedGamingUK");
-    public static final List<String> LFDS = Arrays.asList("omarheshamelamin");
-    public static final list<String> SYS = Arrays.asList("jspence73");
-    public static final list<String> CO_OWNERS = Arrays.asList("xXLemonXx", "Skull565", "decyj145");
-    
+    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "DarthSalmon", "AcidicCyanide", "Wild1145", "WickedGamingUK");
+    public static final List<String> FOP_DEVELOPERS = Arrays.asList("Paldiu", "xDestroyer217", "Freelix2000", "Cyro1999"); // this isn't used, but we are keeping it for credit reasoning
+    public static final List<String> RF_DEVELOPERS = Arrays.asList("Hockeyfan360");
+    public static final List<String> EXECUTIVES = Arrays.asList("Alosion", "DF_Crafted", "ItzTrae");
+    public static final List<String> COCFD = Arrays.asList("Joenmb");
+    public static final List<String> SYS = Arrays.asList("DarkHorse108", "xYurippe", "cowgomooo12", "MysteriAce", "SupItsLuka", "dlg666999", "Joenmb", "eddieusselman", "ItsFenixMC", "CombosPvPs");
+    public static final List<String> SPECIALISTS = Arrays.asList("reuben4545");
+    public static final List<String> COOWNER = Arrays.asList("TaahThePenguin", "AndySixx", "decyj145");
+    public static final List<String> LEADDEV = Arrays.asList("iDelRey");
     private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<String, ChatColor>();
@@ -90,6 +94,9 @@ public class TFM_Util
             ChatColor.RED,
             ChatColor.LIGHT_PURPLE,
             ChatColor.YELLOW);
+    public static ArrayList<String> imposters = new ArrayList<>();
+    public static final List<String> permbannedNames = HARDCODE;
+    public static final List<String> permbannedIps = HARDCODE_IPS;
 
     static
     {
@@ -136,6 +143,24 @@ public class TFM_Util
         TFM_Util.bcastMsg(message, null);
     }
 
+    public static void telnetFix(String message, ChatColor color)
+    {
+        TFM_Log.info(message, true);
+
+        for (Player player : Bukkit.getOnlinePlayers())
+        {
+            if (TFM_AdminList.isTelnetAdmin(player))
+            {
+                player.sendMessage((color == null ? "" : color) + message);
+            }
+        }
+    }
+
+    public static void telnetFix(String message)
+    {
+        TFM_Util.telnetFix(message, null);
+    }
+
     // Still in use by listeners
     public static void playerMsg(CommandSender sender, String message, ChatColor color)
     {
@@ -148,9 +173,30 @@ public class TFM_Util
         TFM_Util.playerMsg(sender, message, ChatColor.GRAY);
     }
 
+    public static void setFlying(Player player, boolean flying)
+    {
+        player.setAllowFlight(true);
+        player.setFlying(flying);
+    }
+
+    public static void adminAction(String adminName, String action)
+    {
+        TFM_Util.bcastMsg(adminName + " - " + action);
+    }
+
+    public static void adminAction(String adminName, String action, ChatColor color)
+    {
+        TFM_Util.bcastMsg(adminName + " - " + action, color);
+    }
+
     public static void adminAction(String adminName, String action, boolean isRed)
     {
         TFM_Util.bcastMsg(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
+    }
+
+    public static void telnetMessage(String adminName, String action, boolean isRed)
+    {
+        TFM_Util.telnetFix(adminName + " - " + action, (isRed ? ChatColor.RED : ChatColor.AQUA));
     }
 
     public static String getIp(OfflinePlayer player)
@@ -160,16 +206,22 @@ public class TFM_Util
             return player.getPlayer().getAddress().getAddress().getHostAddress().trim();
         }
 
-        final UUID uuid = TFM_UuidManager.getUniqueId(player);
+        final TFM_Player entry = TFM_PlayerList.getEntry(TFM_UuidManager.getUniqueId(player));
 
-        final TFM_Player entry = TFM_PlayerList.getEntry(uuid);
+        return (entry == null ? null : entry.getIps().get(0));
+    }
 
-        if (entry == null)
+    public static boolean isUniqueId(String uuid)
+    {
+        try
         {
-            return null;
+            UUID.fromString(uuid);
+            return true;
         }
-
-        return entry.getIps().get(0);
+        catch (IllegalArgumentException ex)
+        {
+            return false;
+        }
     }
 
     public static String formatLocation(Location location)
@@ -326,7 +378,7 @@ public class TFM_Util
                         block.setType(Material.SKULL);
                         final Skull skull = (Skull) block.getState();
                         skull.setSkullType(SkullType.PLAYER);
-                        skull.setOwner("DarthSalamon");
+                        skull.setOwner("iDelRey");
                         skull.update();
                     }
                 }
@@ -341,6 +393,7 @@ public class TFM_Util
         world.setTime(time + 24000 + ticks);
     }
 
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void createDefaultConfiguration(final String configFileName)
     {
         final File targetFile = new File(TotalFreedomMod.plugin.getDataFolder(), configFileName);
@@ -375,6 +428,7 @@ public class TFM_Util
 
     public static void deleteCoreDumps()
     {
+        @SuppressWarnings("Convert2Lambda")
         final File[] coreDumps = new File(".").listFiles(new FileFilter()
         {
             @Override
@@ -410,6 +464,7 @@ public class TFM_Util
      * @param file The File to write to.
      * @throws IOException
      */
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void copy(InputStream in, File file) throws IOException // BukkitLib @ https://github.com/Pravian/BukkitLib
     {
         if (!file.exists())
@@ -634,7 +689,10 @@ public class TFM_Util
         return StringUtils.join(names, ", ");
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings(
+            {
+                "unchecked", "UseSpecificCatch", "ConvertToTryWithResources"
+            })
     public static Map<String, Boolean> getSavedFlags()
     {
         Map<String, Boolean> flags = null;
@@ -659,6 +717,7 @@ public class TFM_Util
         return flags;
     }
 
+    @SuppressWarnings("UnnecessaryUnboxing")
     public static boolean getSavedFlag(String flag) throws Exception
     {
         Boolean flagValue = null;
@@ -683,6 +742,7 @@ public class TFM_Util
         }
     }
 
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void setSavedFlag(String flag, boolean value)
     {
         Map<String, Boolean> flags = TFM_Util.getSavedFlags();
@@ -895,6 +955,7 @@ public class TFM_Util
         downloadFile(url, output, false);
     }
 
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void downloadFile(String url, File output, boolean verbose) throws java.lang.Exception
     {
         final URL website = new URL(url);
@@ -918,6 +979,7 @@ public class TFM_Util
         {
             if (TFM_AdminList.isSuperAdmin(player))
             {
+                // I am not changing the chat colors
                 player.sendMessage("[" + ChatColor.AQUA + "ADMIN" + ChatColor.WHITE + "] " + ChatColor.DARK_RED + name + ": " + ChatColor.AQUA + message);
             }
         }
@@ -937,10 +999,7 @@ public class TFM_Util
                 return (T) field.get(from);
 
             }
-            catch (NoSuchFieldException ex)
-            {
-            }
-            catch (IllegalAccessException ex)
+            catch (NoSuchFieldException | IllegalAccessException ex)
             {
             }
         }
