@@ -1027,24 +1027,17 @@ public class TFM_PlayerListener implements Listener
                 afterNameSet(player);
                 return;
             }
-            else if (player.getName().equals("MysteriAce"))
-            {
-                player.setPlayerListName(ChatColor.YELLOW + name);
-                TFM_PlayerData.getPlayerData(player).setTag("&8[&cMysteri&8]");
-                afterNameSet(player);
-                return;
-            }
-            else if (player.getName().equals("CombosPvPs"))
-            {
-                player.setPlayerListName(ChatColor.YELLOW + name);
-                TFM_PlayerData.getPlayerData(player).setTag("&8[&eCreeper&8]");
-                afterNameSet(player);
-                return;
-            }
-            else if (player.getName().equals("DarkHorse108"))
+                 if (TFM_ConfigEntry.SERVER_SYSTEMADMINS.getList().contains(name))
             {
                 player.setPlayerListName(ChatColor.DARK_RED + name);
-                TFM_PlayerData.getPlayerData(player).setTag("&8[&4System Manager&8]");
+                TFM_PlayerData.getPlayerData(player).setTag("&8[&4System-Admin&8]");
+                afterNameSet(player);
+                return;
+            }
+                        if (TFM_ConfigEntry.SERVER_EXECUTIVES.getList().contains(name))
+            {
+                player.setPlayerListName(ChatColor.YELLOW + name);
+                TFM_PlayerData.getPlayerData(player).setTag("&8[&eExecutive&8]");
                 afterNameSet(player);
                 return;
             }
@@ -1116,17 +1109,17 @@ public class TFM_PlayerListener implements Listener
             {
                 if (TFM_ConfigEntry.ADMIN_ONLY_MODE.getBoolean())
                 {
-                    player.sendMessage(ChatColor.RED + "RubyFreedom is currently closed to non-superadmins.");
+                    player.sendMessage(ChatColor.RED + "GoldenFreedom is currently closed to non-superadmins.");
                 }
 
                 if (TFM_ConfigEntry.TRAINING_SESSION.getBoolean())
                 {
-                    player.sendMessage(ChatColor.RED + "RubyFreedom is currently in a training session.");
+                    player.sendMessage(ChatColor.RED + "GoldenFreedom is currently in a training session.");
                 }
 
                 if (TotalFreedomMod.lockdownEnabled)
                 {
-                    TFM_Util.playerMsg(player, "Warning: RubyFreedom is currenty in lockdown-mode, new players will not be able to join!", ChatColor.RED);
+                    TFM_Util.playerMsg(player, "Warning: GoldenFreedom is currenty in lockdown-mode, new players will not be able to join!", ChatColor.RED);
                 }
             }
         }.runTaskLater(TotalFreedomMod.plugin, 20L * 1L);
