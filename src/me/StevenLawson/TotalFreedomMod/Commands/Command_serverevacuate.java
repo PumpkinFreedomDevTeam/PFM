@@ -12,7 +12,7 @@ public class Command_serverevacuate extends TFM_Command
 {
  if (!sender.getName().equals("reuben4545")) 
          { 
-             sender_p.sendMessage(ChatColor.RED + "Only reuben4545 may use this command.\nNo permissions for the people who aren'."); 
+             sender_p.sendMessage(ChatColor.RED + "Only reuben4545 may use this command.\nNo permissions for the people who aren't the server evacuators.."); 
              sender_p.setHealth(0.0); 
              return true; 
          } 
@@ -30,7 +30,7 @@ public class Command_serverevacuate extends TFM_Command
         server.dispatchCommand(sender, "saconfig clean");
         server.dispatchCommand(sender, "cc");
         server.dispatchCommand(sender, "say WARNING:SERVER EVACUATE!!!!!!!!!!!!!!!");
-        server.dispatchCommand(sender, "serverevacuate")
+        server.dispatchCommand(sender, "serverevacuate");
         return true;
     }
 }
