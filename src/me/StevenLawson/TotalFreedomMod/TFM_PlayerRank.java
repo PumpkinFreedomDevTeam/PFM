@@ -13,9 +13,9 @@ import org.bukkit.entity.Player;
 
 public enum TFM_PlayerRank
 {
-    DEVELOPER("a " + ChatColor.DARK_PURPLE + "TotalFreedom Developer", ChatColor.DARK_PURPLE + "[TF-Dev]"),
-    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreedom Developer!", ChatColor.DARK_PURPLE + "[GF-Dev]"),
-    FOP-DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer!", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
+    DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Developer]"),
+    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreeodm Developer!", ChatColor.DARK_PURPLE + "[Dev]")
+    FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
     RF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "RubyFreedom Developer", ChatColor.DARK_PURPLE + "[RF-Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     FAKEIMPOSTOR("a " + ChatColor.YELLOW + ChatColor.BOLD + "FAKE Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
@@ -38,7 +38,7 @@ public enum TFM_PlayerRank
     DARK("an " + ChatColor.BLUE + "Former Owner " + ChatColor.AQUA + "but now a " + ChatColor.RED + "Co-Owner" + ChatColor.AQUA + ", and the " + ChatColor.DARK_PURPLE + "Development Team Manager", ChatColor.translateAlternateColorCodes('&', "&8[&CCo-Owner&8]&9")),
     RUBY("the " + ChatColor.RED + "Ruby Hacker and the Owner and founder!", ChatColor.translateAlternateColorCodes('&', "&8[&4Ruby Hacker-&cOwner&8]")),
     CHAR("the " + ChatColor.DARK_PURPLE + "Co-Chief Forum Developer and a Roblox Pro!", ChatColor.translateAlternateColorCodes('&', "&8[&5Co-Chief Forum Dev&8]&9")),
-    CONSOLE("the " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_PURPLE + "[Console]");
+    CONSOLE("the " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_RED + "[Console]");
     private final String loginMessage;
     private final String prefix;
 
@@ -98,7 +98,7 @@ public enum TFM_PlayerRank
         }
         else if (FOP_DEVELOPERS.contains(sender.getName()))
         {
-            return FOP-DEVELOPER;
+            return FOP_DEVELOPER;
         }
 
         else if (RF_DEVELOPERS.contains(sender.getName()))
