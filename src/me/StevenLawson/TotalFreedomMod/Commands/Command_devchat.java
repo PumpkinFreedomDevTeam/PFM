@@ -4,7 +4,7 @@ import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import me.StevenLawson.TotalFreedomMod.FOPM_TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.COOWNER;
-import static me.StevenLawson.TotalFreedomMod.TFM_Util.RF_DEVELOPERS;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
