@@ -16,7 +16,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
-@CommandParameters(description = "A terrible command with horrific ideas.", usage = "/<command> <jelly | Hammer| Sprite> <partialname>")
+@CommandParameters(description = "A Awesome Command.", usage = "/<command> <reuben | Hammer| Sprite> <partialname>")
 public class Command_impl extends TFM_Command
 {
     @Override
@@ -34,7 +34,7 @@ public class Command_impl extends TFM_Command
                 final Player p;
                 p = getPlayer(args[1]);
                 final Location loc = p.getLocation();
-                TFM_Util.bcastMsg("Hey You " + p.getName() + ", Whats The Difference Between Sprite And Dronze? Nothing There both awesome Developers", FOPM_TFM_Util.randomChatColour());
+                TFM_Util.bcastMsg("Hey  " + p.getName() + ", Whats The Difference Between Sprite And Dronze? Nothing There both awesome Developers", FOPM_TFM_Util.randomChatColour());
                 for (int x = -1; x <= 1; x++)
                 {
                     for (int z = -1; z <= 1; z++)
