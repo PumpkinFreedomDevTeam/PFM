@@ -20,7 +20,7 @@ public enum TFM_PlayerRank
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     FAKEIMPOSTOR("a " + ChatColor.YELLOW + ChatColor.BOLD + "FAKE Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
-    OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
+    OP("an " + ChatColor.RED + "OP", ChatColor.GREEN.BOLD + "[BanMe]"),
     LEAD_SPECIALIST("the " + ChatColor.GREEN + "Lead Specialist", ChatColor.GREEN + "[L-Specialist]"),
     SUPER("a " + ChatColor.AQUA + "Super Admin", ChatColor.AQUA + "[SA]"),
     TELNET("a " + ChatColor.DARK_GREEN + "Telnet Admin", ChatColor.DARK_GREEN + "[TA]"),
