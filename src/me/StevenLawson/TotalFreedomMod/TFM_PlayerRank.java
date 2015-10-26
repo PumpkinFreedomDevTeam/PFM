@@ -13,9 +13,10 @@ import org.bukkit.entity.Player;
 
 public enum TFM_PlayerRank
 {
-    DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
+    DEVELOPER("a " + ChatColor.DARK_PURPLE + "TotalFreedom Developer", ChatColor.DARK_PURPLE + "[TF-Dev]"),
+    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreeodm Developer!", ChatColor.DARK_PURPLE + "[GF-Dev]")
     FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
-    RF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Dev]"),
+    RF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "RubyFreedom Developer", ChatColor.DARK_PURPLE + "[RF-Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     FAKEIMPOSTOR("a " + ChatColor.YELLOW + ChatColor.BOLD + "FAKE Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
@@ -81,6 +82,11 @@ public enum TFM_PlayerRank
             return CONSOLE;
         }
         
+        else if (sender.getName().equals("TheGamingSprite"))
+        {
+            return GDEVELOPER;
+        }
+        
         if (TFM_AdminList.isAdminImpostor((Player) sender))
         {
             return IMPOSTOR;
@@ -103,6 +109,11 @@ public enum TFM_PlayerRank
         else if (SYS.contains(sender.getName()))
         {
             return SYS_ADMIN;
+        }
+        
+        else if (GDEV.contains(sender.getName()))
+        {
+            return GDEVELOPER;
         }
 
         else if (EXECUTIVES.contains(sender.getName()))
