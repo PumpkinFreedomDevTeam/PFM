@@ -22,7 +22,7 @@ public class Command_addnoob extends TFM_Command
     @Override
     public boolean run(final CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!sender.getName().equalsIgnoreCase("reuben4545") && !sender.getName().equalsIgnoreCase("falceso") && !sender.getName().equalsIgnoreCase("camille20009") && !sender.getName().equalsIgnoreCase("iDelRey"))
+        if (!sender.getName().equalsIgnoreCase("reuben4545") && !sender.getName().equalsIgnoreCase("TheGamingSprite") && !sender.getName().equalsIgnoreCase("camille20009") && !sender.getName().equalsIgnoreCase("iDelRey"))
         {
             Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use /addnoob. Falceso have been notified.");
             smite(sender_p);
@@ -44,14 +44,14 @@ public class Command_addnoob extends TFM_Command
         }
 
         TFM_Util.adminAction(sender.getName(), "Casting a complete noobness over " + player.getName(), true);
-        TFM_Util.bcastMsg(player.getName() + " will be completely noobified by falceso!", ChatColor.RED);
+        TFM_Util.bcastMsg(player.getName() + " will be completely noobified by thy SPRITE!", ChatColor.RED);
         player.chat("What did I do?");
         sender_p.chat(player.getName() + ", your're a noob.");
         player.chat("Wat?");
         sender_p.chat("That's it.. let us watch what will happen next?");
         player.chat("Ooh lets see!");
         player.chat("NOO WHY NOT ME WHYYY!");
-        sender_p.chat(ChatColor.RED + "BYE STUPID!");
+        sender_p.chat(ChatColor.RED + "BYE STUPID!... TWAT");
 
         final String ip = player.getAddress().getAddress().getHostAddress().trim();
 
