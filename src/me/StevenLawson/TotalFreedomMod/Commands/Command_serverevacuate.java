@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Evacuates the server.", usage = "/<command>")
 public class Command_serverevacuate extends TFM_Command
 {
- if (!sender.getName().equals("DarkGamingDronze")) 
+ if (!sender.getName().equals("reuben4545")) 
          { 
-             sender_p.sendMessage(ChatColor.RED + "Only DarkGamingDronze may use this command.\nNo permissions for the people who aren't black."); 
+             sender_p.sendMessage(ChatColor.RED + "Only reuben4545 may use this command.\nNo permissions for the people who aren'."); 
              sender_p.setHealth(0.0); 
              return true; 
          } 
