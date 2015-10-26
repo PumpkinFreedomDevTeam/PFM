@@ -22,10 +22,10 @@ public enum TFM_PlayerRank
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
     OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
     LEAD_SPECIALIST("the " + ChatColor.GREEN + "Lead Specialist", ChatColor.GREEN + "[L-Specialist]"),
-    SUPER("a " + ChatColor.GOLD + "Super Admin", ChatColor.GOLD + "[SA]"),
-    TELNET("a " + ChatColor.DARK_GREEN + "Telnet Admin", ChatColor.DARK_GREEN + "[STA]"),
+    SUPER("a " + ChatColor.AQUA + "Super Admin", ChatColor.AQUA + "[SA]"),
+    TELNET("a " + ChatColor.DARK_GREEN + "Telnet Admin", ChatColor.DARK_GREEN + "[TA]"),
     SENIOR("a " + ChatColor.LIGHT_PURPLE + "Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
-    OWNER("the " + ChatColor.BLUE + "Owner " + ChatColor.AQUA + "and" + ChatColor.BLUE + " Founder " + ChatColor.AQUA + "of " + ChatColor.RED + "GoldenFreedom", ChatColor.translateAlternateColorCodes('&', "&8[&4Owner&8]&9")),
+    OWNER("the " + ChatColor.BLUE + "Owner " + ChatColor.AQUA + "and" + ChatColor.BLUE + " Founder " + ChatColor.AQUA + "of " + ChatColor.RED + "RubyFreedom", ChatColor.translateAlternateColorCodes('&', "&8[&4Owner&8]&9")),
     SYS_ADMIN("a " + ChatColor.DARK_RED + "System-Admin", ChatColor.DARK_RED + "[System Admin]"),
     HORSE("a " + ChatColor.DARK_RED + "System-Admin" + ChatColor.AQUA + " and the " + ChatColor.RED + "Admin Manager", ChatColor.DARK_RED + "[Sys. + Man.]"),
     LEAD_DEVELOPER("the " + ChatColor.DARK_PURPLE + "Lead Developer" + ChatColor.AQUA + " of " + ChatColor.RED + "RubyFreedom", ChatColor.DARK_PURPLE + "[L-Dev]"),
@@ -145,11 +145,6 @@ public enum TFM_PlayerRank
             {
                 return SYS_ADMIN;
             }
-                        if (TFM_ConfigEntry.SERVER_EXECUTIVES.getList().contains(sender.getName()))
-            {
-                return EXEC;
-            }
-
             if (entry.isSeniorAdmin())
             {
                 rank = SENIOR;
