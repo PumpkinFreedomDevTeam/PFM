@@ -69,14 +69,14 @@ public class TFM_Util
     private static final Map<String, Integer> ejectTracker = new HashMap<String, Integer>();
     public static final Map<String, EntityType> mobtypes = new HashMap<String, EntityType>();
     // See https://github.com/TotalFreedom/License - None of the listed names may be removed.
-    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "TheGamingSprite", "AcidicCyanide", "Wild1145", "WickedGamingUK");
+    public static final List<String> DEVELOPERS = Arrays.asList("Madgeek1450", "Prozza", "MAdGeek1111", "AcidicCyanide", "Wild1145", "WickedGamingUK");
     public static final List<String> FOP_DEVELOPERS = Arrays.asList("Paldiu", "xDestroyer217", "Freelix2000", "Cyro1999"); // this isn't used, but we are keeping it for credit reasoning
     public static final List<String> RF_DEVELOPERS = Arrays.asList("");
     public static final List<String> EXECUTIVES = Arrays.asList("");
     public static final List<String> COCFD = Arrays.asList("");
     public static final List<String> SYS = Arrays.asList("TheGamingSprite");
     public static final List<String> SPECIALISTS = Arrays.asList("");
-    public static final List<String> COOWNER = Arrays.asList("botisz02");
+    public static final List<String> COOWNER = Arrays.asList(,);
     public static final List<String> LEADDEV = Arrays.asList("");
     private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
