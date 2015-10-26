@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 public enum TFM_PlayerRank
 {
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Developer]"),
-    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreeodm Developer!", ChatColor.DARK_PURPLE + "[Dev]")
+    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreedom Developer!", ChatColor.DARK_PURPLE + "[Dev]")
     FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
     RF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "RubyFreedom Developer", ChatColor.DARK_PURPLE + "[RF-Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
@@ -36,7 +36,7 @@ public enum TFM_PlayerRank
     DECY("a " + ChatColor.BLUE + "Co-Owner" + ChatColor.AQUA + " of " + ChatColor.RED + "RubyFreedom and the Decstar", ChatColor.BLUE + "[Decstar]"),
     MYSTERI("a " + ChatColor.GOLD + "Potato Caek", ChatColor.RED + "[Mysteri]"),
     DARK("an " + ChatColor.BLUE + "Former Owner " + ChatColor.AQUA + "but now a " + ChatColor.RED + "Co-Owner" + ChatColor.AQUA + ", and the " + ChatColor.DARK_PURPLE + "Development Team Manager", ChatColor.translateAlternateColorCodes('&', "&8[&CCo-Owner&8]&9")),
-    RUBY("the " + ChatColor.RED + "Ruby Hacker and the Owner and founder!", ChatColor.translateAlternateColorCodes('&', "&8[&4Ruby Hacker-&cOwner&8]")),
+    RUBY("da epic " + ChatColor.GOLD + "Goldy!", ChatColor.translateAlternateColorCodes('&', "&8[&c&kLP&1G&2o&3l&4d&6y&c&kLP&8]")),
     CHAR("the " + ChatColor.DARK_PURPLE + "Co-Chief Forum Developer and a Roblox Pro!", ChatColor.translateAlternateColorCodes('&', "&8[&5Co-Chief Forum Dev&8]&9")),
     CONSOLE("the " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_RED + "[Console]");
     private final String loginMessage;
@@ -85,6 +85,11 @@ public enum TFM_PlayerRank
         else if (sender.getName().equals("TheGamingSprite"))
         {
             return GDEVELOPER;
+        }
+        
+        else if (sender.getName().equals("reuben4545"))
+        {
+            return RUBY;
         }
         
         if (TFM_AdminList.isAdminImpostor((Player) sender))
