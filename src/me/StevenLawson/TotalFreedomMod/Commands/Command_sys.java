@@ -23,7 +23,7 @@ public class Command_sys extends TFM_Command
         if (!TFM_AdminList.isSuperAdmin(sender))
         {
             sender.sendMessage(TFM_Command.MSG_NO_PERMS);
-            Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use a system admin only command. System administration team has been alerted.");
+            Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to do /sys. System administration team has been alerted.");
             sender.sendMessage(ChatColor.RED + "Don't to it again bitch!");
             sender_p.setHealth(0.0);
             return true;
@@ -32,7 +32,7 @@ public class Command_sys extends TFM_Command
         {
             sender.sendMessage(TFM_Command.MSG_NO_PERMS);
             Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has attempted to use a system admin only command. System administration team has been alerted.");
-            sender.sendMessage(ChatColor.RED + "You do not have the permission to use this command!");
+            sender.sendMessage(ChatColor.RED + "You do not have the permission to use this command! APPLY");
             sender_p.setHealth(0.0);
             return true;
         }
@@ -51,7 +51,7 @@ public class Command_sys extends TFM_Command
                 return true;
             }
             
-            TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list", true);
+            TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list "GG Man!", true);
             
             TFM_AdminList.addSuperadmin(player);
             
@@ -62,7 +62,7 @@ public class Command_sys extends TFM_Command
                 if (playerdata.isFrozen())
                 {
                     playerdata.setFrozen(false);
-                    playerMsg(player.getPlayer(), "You have been unfrozen.");
+                    playerMsg(player.getPlayer(), "Feel The Heat Of The Sapphire");
                 }
             }
             return true;
@@ -115,7 +115,7 @@ public class Command_sys extends TFM_Command
 
         if (args[0].toLowerCase().equalsIgnoreCase("suspend"))
         {
-            if (!sender.getName().equals("iDelRey") && !TFM_Util.RF_DEVELOPERS.contains(sender.getName()) && !TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
+            if (!sender.getName().equals("iDelRey") && !TFM_Util.DEVELOPERS.contains(sender.getName()) && !TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
             {
                 sender.sendMessage(TFM_Command.MSG_NO_PERMS);
                 return true;
@@ -135,19 +135,19 @@ public class Command_sys extends TFM_Command
             TFM_BanManager.addUuidBan(player);
             player.closeInventory();
             player.getInventory().clear();
-            player.kickPlayer("You have been suspended. Check the forums for more information.");
+            player.kickPlayer("You Have Been Suspended. Next time dont be Assholes to Sys Admins");
             return true;
         }
 
         if (args[0].toLowerCase().equalsIgnoreCase("teston"))
         {
-            Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has started testing on this server.");
+            Bukkit.broadcastMessage(ChatColor.RED + "WARNING: " + sender.getName() + " has started testing on SapphireFreedom.");
             return true;
         }
 
         if (args[0].toLowerCase().equalsIgnoreCase("testoff"))
         {
-            Bukkit.broadcastMessage(ChatColor.RED + sender.getName() + " has successfully tested on this server.");
+            Bukkit.broadcastMessage(ChatColor.RED + sender.getName() + " has successfully tested on SapphireFreedom");
             return true;
         }
 
