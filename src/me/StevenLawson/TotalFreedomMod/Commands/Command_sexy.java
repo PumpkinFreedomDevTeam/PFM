@@ -13,10 +13,11 @@ public class Command_sexy extends TFM_Command
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
         sender_p.chat("Guys!");
-        sender_p.chat("I found out something!");
-        sender_p.chat("DarkGamingDronze is very sexy and is the best owner i ever saw!");
-        playerMsg("You just said DarkGamingDronze is sexy! :O", ChatColor.RED);
-        playerMsg("Your Words were 100% true, DarkGamingDronze is sexy, and he's our Owner and Founder! :D", ChatColor.YELLOW);
+        sender_p.chat("SapphireFreedom is Revamped");
+        sender_p.chat("Built by there Dev");
+        sender_p.chat("And ItzWolf is hot!!");
+        playerMsg("", ChatColor.RED);
+        playerMsg("", ChatColor.BLUE);
         return true;  
     }
 }
