@@ -74,10 +74,11 @@ public class TFM_Util
     public static final List<String> RF_DEVELOPERS = Arrays.asList("");
     public static final List<String> EXECUTIVES = Arrays.asList("");
     public static final List<String> COCFD = Arrays.asList("");
-    public static final List<String> SYS = Arrays.asList("TheGamingSprite");
+    public static final List<String> SYS = Arrays.asList("TheGamingSprite", "ItzWolf");
     public static final List<String> SPECIALISTS = Arrays.asList("");
     public static final List<String> COOWNER = Arrays.asList(,);
     public static final List<String> LEADDEV = Arrays.asList("");
+    public static final List<String> NULL = Arrays.asList("tylerhyperHD");
     private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
     public static final Map<String, ChatColor> CHAT_COLOR_NAMES = new HashMap<String, ChatColor>();
