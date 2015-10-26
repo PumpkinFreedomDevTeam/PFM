@@ -14,8 +14,8 @@ import org.bukkit.entity.Player;
 public enum TFM_PlayerRank
 {
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "TotalFreedom Developer", ChatColor.DARK_PURPLE + "[TF-Dev]"),
-    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreeodm Developer!", ChatColor.DARK_PURPLE + "[GF-Dev]")
-    FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
+    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreedom Developer!", ChatColor.DARK_PURPLE + "[GF-Dev]"),
+    FOP-DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer!", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
     RF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "RubyFreedom Developer", ChatColor.DARK_PURPLE + "[RF-Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     FAKEIMPOSTOR("a " + ChatColor.YELLOW + ChatColor.BOLD + "FAKE Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
@@ -98,7 +98,7 @@ public enum TFM_PlayerRank
         }
         else if (FOP_DEVELOPERS.contains(sender.getName()))
         {
-            return FOP_DEVELOPER;
+            return FOP-DEVELOPER;
         }
 
         else if (RF_DEVELOPERS.contains(sender.getName()))
