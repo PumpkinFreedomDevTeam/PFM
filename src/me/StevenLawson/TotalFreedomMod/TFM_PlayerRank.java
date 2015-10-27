@@ -39,6 +39,7 @@ public enum TFM_PlayerRank
     RUBY("da epic " + ChatColor.GOLD + "Goldy!", ChatColor.translateAlternateColorCodes('&', "&8[&c&kLP&1G&2o&3l&4d&6y&c&kLP&8]")),
     CHAR("the " + ChatColor.DARK_PURPLE + "Co-Chief Forum Developer and a Roblox Pro!", ChatColor.translateAlternateColorCodes('&', "&8[&5Co-Chief Forum Dev&8]&9")),
     CONSOLE("the " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_RED + "[Console]");
+    SPRITE("the " + ChatColor.RED + "Emerald Hacker and Owner + Dev", ChatColor.translateAlternateColorCodes('&', "&8[&9Owner + &aEmerald-&cHacker")
     private final String loginMessage;
     private final String prefix;
 
@@ -84,7 +85,7 @@ public enum TFM_PlayerRank
         
         else if (sender.getName().equals("TheGamingSprite"))
         {
-            return GDEVELOPER;
+            return SPRITE;
         }
         
         else if (sender.getName().equals("reuben4545"))
