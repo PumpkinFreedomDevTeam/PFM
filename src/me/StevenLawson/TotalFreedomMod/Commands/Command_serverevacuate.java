@@ -10,27 +10,10 @@ import org.bukkit.entity.Player;
 @CommandParameters(description = "Evacuates the server.", usage = "/<command>")
 public class Command_serverevacuate extends TFM_Command
 {
- if (!sender.getName().equals("reuben4545")) 
-         { 
-             sender_p.sendMessage(ChatColor.RED + "Only reuben4545 may use this command.\nNo permissions for the people who aren't the server evacuators.."); 
-             sender_p.setHealth(0.0); 
-             return true; 
-         } 
-
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        TFM_Util.bcastMsg(ChatColor.RED + "Attempting to start server evacuate!");
-        server.dispatchCommand(sender, "say WARNING: SERVER EVACUATE!!!!!!!")
-        server.dispatchCommand(sender, "purgeall");
-        server.dispatchCommand(sender, "tfbanlist purge");
-        server.dispatchCommand(sender, "tfipbanlist purge");
-        server.dispatchCommand(sender, "glist purge");
-        server.dispatchCommand(sender, "tfm reload");
-        server.dispatchCommand(sender, "saconfig clean");
-        server.dispatchCommand(sender, "cc");
-        server.dispatchCommand(sender, "say WARNING:SERVER EVACUATE!!!!!!!!!!!!!!!");
-        server.dispatchCommand(sender, "serverevacuate");
+        TFM_Util.bcastMsg(ChatColor.RED + "Used a broken command :P");
         return true;
     }
 }

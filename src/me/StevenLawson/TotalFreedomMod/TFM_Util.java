@@ -72,12 +72,12 @@ public class TFM_Util
     public static final List<String> DEVELOPERS = Arrays.asList("TheGamingSprite", "Prozza", "MAdGeek1111", "AcidicCyanide", "Wild1145", "WickedGamingUK");
     public static final List<String> FOP_DEVELOPERS = Arrays.asList("Paldiu", "xDestroyer217", "Freelix2000", "Cyro1999"); // this isn't used, but we are keeping it for credit reasoning
     public static final List<String> RF_DEVELOPERS = Arrays.asList("");
-    public static final List<String> EXECUTIVES = Arrays.asList("");
+    public static final List<String> EXECUTIVES = Arrays.asList("xXMangleDabossXx");
     public static final List<String> COCFD = Arrays.asList("");
-    public static final List<String> SYS = Arrays.asList("TheGamingSprite", "ItzWolf", "jimthetitan");
+    public static final List<String> SYS = Arrays.asList("SupItsLuka", "ItzWolf", "jimthetitan", "Fireboy333", "Antasma_X");
     public static final List<String> SPECIALISTS = Arrays.asList("");
-    public static final List<String> COOWNER = Arrays.asList("TheGamingSprite",);
-    public static final List<String> LEADDEV = Arrays.asList("TheGamingSprite"");
+    public static final List<String> COOWNER = Arrays.asList("botisz02");
+    public static final List<String> LEADDEV = Arrays.asList("TheGamingSprite");
     public static final List<String> NULL = Arrays.asList("tylerhyperHD");
     private static final Random RANDOM = new Random();
     public static String DATE_STORAGE_FORMAT = "EEE, d MMM yyyy HH:mm:ss Z";
@@ -95,7 +95,7 @@ public class TFM_Util
             ChatColor.RED,
             ChatColor.LIGHT_PURPLE,
             ChatColor.YELLOW);
-    public static ArrayList<String> imposters = new ArrayList<>(tylerhyperHD);
+    public static ArrayList<String> imposters = new ArrayList<>();
     public static final List<String> permbannedNames = HARDCODE;
     public static final List<String> permbannedIps = HARDCODE_IPS;
 

@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 @CommandPermissions(level = AdminLevel.ALL, source = SourceType.BOTH)
 @CommandParameters(description = "Shows information about RubyFreedomMod or reloads it", usage = "/<command> [reload]")
-public class Command_rfm extends TFM_Command
+public class Command_sfm extends TFM_Command
 {
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)

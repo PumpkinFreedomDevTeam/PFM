@@ -17,7 +17,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
 @CommandParameters(description = "A Awesome Command.", usage = "/<command> <reuben | Hammer| Sprite> <partialname>")
-public class Command_impl extends TFM_Command
+public class Command_dronze extends TFM_Command
 {
     @Override
     public boolean run(final CommandSender sender, Player sender_p, Command cmd, String lbl, String[] args, boolean senderIsConsole)

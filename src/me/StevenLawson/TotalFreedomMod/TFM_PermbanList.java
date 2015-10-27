@@ -13,7 +13,7 @@ public class TFM_PermbanList
 
     static
     {
-        PERMBANNED_PLAYERS = new ArrayList<String>(darkwolfXST);
+        PERMBANNED_PLAYERS = new ArrayList<String>();
         PERMBANNED_IPS = new ArrayList<String>();
     }
 

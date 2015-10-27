@@ -1027,13 +1027,7 @@ public class TFM_PlayerListener implements Listener
                 afterNameSet(player);
                 return;
             }
-                 if (TFM_ConfigEntry.SERVER_SYSTEMADMINS.getList().contains(name))
-            {
-                player.setPlayerListName(ChatColor.DARK_RED + name);
-                TFM_PlayerData.getPlayerData(player).setTag("&8[&4System-Admin&8]");
-                afterNameSet(player);
-                return;
-            }
+
                         if (TFM_ConfigEntry.SERVER_EXECUTIVES.getList().contains(name))
             {
                 player.setPlayerListName(ChatColor.YELLOW + name);
@@ -1048,28 +1042,28 @@ public class TFM_PlayerListener implements Listener
                 afterNameSet(player);
                 return;
             }
-            if (TFM_Util.COOWNER.contains(name))
-            {
-                player.setPlayerListName(ChatColor.DARK_BLUE + name);
-                TFM_PlayerData.getPlayerData(player).setTag("&8[&9Co-Owner&8]");
-                afterNameSet(player);
-                return;
-            }
-            if (TFM_Util.SPECIALISTS.contains(name))
+                    else if (TFM_Util.SPECIALISTS.contains(player.getName()))
             {
                 player.setPlayerListName(ChatColor.GREEN + name);
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&aSpecialist&8]");
                 afterNameSet(player);
                 return;
             }
-            if (TFM_Util.EXECUTIVES.contains(name))
+                    else if (TFM_Util.EXECUTIVES.contains(player.getName()))
             {
                 player.setPlayerListName(ChatColor.YELLOW + name);
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&eExecutive&8]");
                 afterNameSet(player);
                 return;
             }
-            if (TFM_Util.SYS.contains(name))
+                    else if (TFM_Util.COOWNER.contains(player.getName()))
+            {
+                player.setPlayerListName(ChatColor.BLUE + name);
+                TFM_PlayerData.getPlayerData(player).setTag("&8[&9Co-Owner&8]");
+                afterNameSet(player);
+                return;
+            }
+                    else if (TFM_Util.SYS.contains(player.getName()))
             {
                 player.setPlayerListName(ChatColor.DARK_RED + name);
                 TFM_PlayerData.getPlayerData(player).setTag("&8[&4System-Admin&8]");

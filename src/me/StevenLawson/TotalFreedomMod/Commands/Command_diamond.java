@@ -23,8 +23,8 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 @CommandPermissions(level = AdminLevel.OP, source = SourceType.ONLY_IN_GAME)
-@CommandParameters(description = "Diamonds For Days ", aliases = "Dia")
-public class Command_golden extends TFM_Command
+@CommandParameters(description = "Diamonds For Days ", aliases = "Dia", usage = "/command")
+public class Command_diamond extends TFM_Command
 {
     @Override
     @SuppressWarnings("unchecked")
@@ -50,13 +50,13 @@ public class Command_golden extends TFM_Command
                 PlayerInventory inv = player.getInventory();
 
                 player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 3, 255));
-                ItemStack CamWool = new ItemStack(Material.57, 1, (short) 15);
+                ItemStack CamWool = new ItemStack(Material.WOOL, 1, (short) 15);
                 ItemStack CamBow = new ItemStack(Material.BOW, 1);
-                ItemStack CamSword = new ItemStack(Material.Diamond_SWORD, 1);
+                ItemStack CamSword = new ItemStack(Material.DIAMOND_SWORD, 1);
                 ItemStack CamArrow = new ItemStack(Material.ARROW, 1);
-                ItemStack CamChest = new ItemStack(Material.Diamond_CHESTPLATE, 1);
-                ItemStack CamLegs = new ItemStack(Material.Diamond_LEGGINGS, 1);
-                ItemStack CamBoots = new ItemStack(Material.Diamond_BOOTS, 1);
+                ItemStack CamChest = new ItemStack(Material.DIAMOND_CHESTPLATE, 1);
+                ItemStack CamLegs = new ItemStack(Material.DIAMOND_LEGGINGS, 1);
+                ItemStack CamBoots = new ItemStack(Material.DIAMOND_BOOTS, 1);
 
                 for (Enchantment ench : Enchantment.values())
                 {

@@ -14,13 +14,13 @@ import org.bukkit.entity.Player;
 public enum TFM_PlayerRank
 {
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Developer]"),
-    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreedom Developer!", ChatColor.DARK_PURPLE + "[Dev]")
+    GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreedom Developer!", ChatColor.DARK_PURPLE + "[Dev]"),
     FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
     RF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "RubyFreedom Developer", ChatColor.DARK_PURPLE + "[RF-Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     FAKEIMPOSTOR("a " + ChatColor.YELLOW + ChatColor.BOLD + "FAKE Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
-    OP("an " + ChatColor.RED + "OP", ChatColor.GREEN.BOLD + "[BanMe]"),
+    OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
     LEAD_SPECIALIST("the " + ChatColor.GREEN + "Lead Specialist", ChatColor.GREEN + "[L-Specialist]"),
     SUPER("a " + ChatColor.AQUA + "Super Admin", ChatColor.AQUA + "[SA]"),
     TELNET("a " + ChatColor.DARK_GREEN + "Telnet Admin", ChatColor.DARK_GREEN + "[TA]"),
@@ -116,10 +116,6 @@ public enum TFM_PlayerRank
             return SYS_ADMIN;
         }
         
-        else if (GDEV.contains(sender.getName()))
-        {
-            return GDEVELOPER;
-        }
 
         else if (EXECUTIVES.contains(sender.getName()))
         {
@@ -140,10 +136,6 @@ public enum TFM_PlayerRank
             if (TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()))
             {
                 return OWNER;
-            }
-            if (TFM_ConfigEntry.SERVER_SYSTEMADMINS.getList().contains(sender.getName()))
-            {
-                return SYS_ADMIN;
             }
             if (entry.isSeniorAdmin())
             {

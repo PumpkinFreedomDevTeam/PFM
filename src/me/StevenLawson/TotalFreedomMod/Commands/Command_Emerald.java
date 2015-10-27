@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 @CommandPermissions(level = AdminLevel.SUPER, source = SourceType.BOTH)
 @CommandParameters(description = "For the people that are still alive.", usage = "/<command>")
-public class Command_cake extends TFM_Command
+public class Command_Emerald extends TFM_Command
 {
     public static final String CAKE_LYRICS = "But there's no sense crying over every mistake. You just keep on trying till you run out of Emeralds.";
     private final Random random = new Random();
@@ -29,7 +29,7 @@ public class Command_cake extends TFM_Command
             output.append(ChatColor.COLOR_CHAR).append(Integer.toHexString(1 + random.nextInt(14))).append(word).append(" ");
         }
 
-        final ItemStack heldItem = new ItemStack(Material.Emerald);
+        final ItemStack heldItem = new ItemStack(Material.EMERALD);
         final ItemMeta heldItemMeta = heldItem.getItemMeta();
         heldItemMeta.setDisplayName((new StringBuilder()).append(ChatColor.GOLD).append("Emeralds ").append(ChatColor.DARK_GRAY).append("For").append(ChatColor.DARK_BLUE).append("Dayzzz").toString());
         heldItem.setItemMeta(heldItemMeta);
