@@ -55,13 +55,23 @@ public class Command_personal extends TFM_Command
         }
         switch (which)
         {
-            case "DarkGamingDronze":
-                TFM_Util.adminAction(sender_p.getName(), "Get reked m9", true);
+            case "TheGamingSprite":
+                TFM_Util.adminAction(sender_p.getName(), "EMERALDZ FOR DAYZZZZ", true);
                 for (Player player : Bukkit.getOnlinePlayers())
                 {
                     for (int i = 0; i <= 100; i++)
                     {
                         player.getWorld().strikeLightning(player.getLocation());
+                        
+                        
+                             PlayerInventory inv = player.getInventory();
+                    ItemStack pie = new ItemStack(Material.EMERALD, 1);
+                    ItemMeta meta = emerald.getItemMeta();
+                    meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Sprites Emeralds");
+                    meta.addEnchant(Enchantment.FIRE_ASPECT, 25, true);
+                    meta.addEnchant(Enchantment.KNOCKBACK, 10, true);
+                    pie.setItemMeta(meta);
+                    inv.addItem(emerald);
                     }
                 }
                 break;
