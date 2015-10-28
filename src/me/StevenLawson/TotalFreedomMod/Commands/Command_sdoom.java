@@ -23,7 +23,7 @@ public class Command_doom extends TFM_Command
     {
         if (senderIsConsole)
         {
-            TFM_Log.info("No abuse you stupid prick.");
+            TFM_Log.info("No abuse next time TWAT.");
             return true;
         }
 
@@ -41,14 +41,14 @@ public class Command_doom extends TFM_Command
         }
 
         TFM_Util.adminAction(sender.getName(), "Casting oblivion over " + player.getName(), true);
-        TFM_Util.bcastMsg(player.getName() + " will be completely obliviated!", ChatColor.RED);
+        TFM_Util.bcastMsg(player.getName() + " will be completely obliviated! by /Sdoom", ChatColor.RED);
 
         final String ip = player.getAddress().getAddress().getHostAddress().trim();
 
         // remove from superadmin
         if (TFM_AdminList.isSuperAdmin(player))
         {
-            TFM_Util.adminAction(sender.getName(), "Removing " + player.getName() + " from the superadmin list.", true);
+            TFM_Util.adminAction(sender.getName(), "Removing " + player.getName() + " from the superadmin list FOREVER.", true);
             TFM_AdminList.removeSuperadmin(player);
         }
 
