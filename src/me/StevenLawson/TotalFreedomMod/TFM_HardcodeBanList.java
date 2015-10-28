@@ -23,7 +23,7 @@ public class TFM_HardcodeBanList
             "Cyro1999",
             "FoxIshDaBest",
             "Charlotte474747",
-            "TheGamingSprite",
+    
             "FartZillaMC",
             "ASMaster"
             );
@@ -43,7 +43,7 @@ public class TFM_HardcodeBanList
             "73.170.*.*",
             "1.128.*.*",
             "47.16.*.*",
-            "151.226.*.*",
+            
             "76.250.80.111",
             "204.191.227.101"
     );
