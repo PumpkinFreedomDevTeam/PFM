@@ -51,7 +51,7 @@ public class Command_sys extends TFM_Command
                 return true;
             }
             
-            TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list GG Man!", true);
+            TFM_Util.adminAction(sender.getName(), "Adding " + args[1] + " to the superadmin list ", true);
             
             TFM_AdminList.addSuperadmin(player);
             

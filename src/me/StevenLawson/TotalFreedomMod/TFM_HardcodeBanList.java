@@ -23,7 +23,6 @@ public class TFM_HardcodeBanList
             "Cyro1999",
             "FoxIshDaBest",
             "Charlotte474747",
-    
             "FartZillaMC",
             "ASMaster"
             );
@@ -43,7 +42,6 @@ public class TFM_HardcodeBanList
             "73.170.*.*",
             "1.128.*.*",
             "47.16.*.*",
-            
             "76.250.80.111",
             "204.191.227.101"
     );
@@ -54,6 +52,6 @@ public class TFM_HardcodeBanList
             
     );
     public static final List<String> SUSPENDED_ADMINS_REASON = Arrays.asList(
-            "You are suspended from RubyFreedom."
+            "You are suspended from GoldenFreedom."
     );
 }

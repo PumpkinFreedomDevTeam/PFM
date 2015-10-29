@@ -18,7 +18,7 @@ public class Command_o extends TFM_Command
         {
             if (senderIsConsole)
             {
-                playerMsg("IN GAME COMMAND ONLY JOIN BITCH.");
+                playerMsg("Only in-game players can toggle admin chat.");
                 return true;
             }
 
@@ -40,7 +40,7 @@ public class Command_o extends TFM_Command
             }
 
             userinfo.setAdminChat(!userinfo.inAdminChat());
-            playerMsg("Toggled Admin Chat xD " + (userinfo.inAdminChat() ? "on" : "off") + ".");
+            playerMsg("Toggled Admin Chat " + (userinfo.inAdminChat() ? "on" : "off") + ".");
         }
         else
         {

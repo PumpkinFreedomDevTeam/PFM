@@ -16,8 +16,8 @@ public class Command_sexy extends TFM_Command
         sender_p.chat("SapphireFreedom is Revamped");
         sender_p.chat("Built by there Dev");
         sender_p.chat("And ItzWolf is hot!!");
-        sender_p.chat("Why the fuck did i just say ItzWolf is hot." + ChatColor.RED);
-        sender_p.chat("*SPEECHLESS*" + ChatColor.BLUE);
+        sender_p.chat("Why the fuck did i just say ItzWolf is hot.");
+        sender_p.chat("*SPEECHLESS*");
         return true;  
     }
 }

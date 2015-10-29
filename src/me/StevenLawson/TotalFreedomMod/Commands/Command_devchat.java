@@ -3,8 +3,8 @@ package me.StevenLawson.TotalFreedomMod.Commands;
 import me.StevenLawson.TotalFreedomMod.Config.TFM_ConfigEntry;
 import me.StevenLawson.TotalFreedomMod.FOPM_TFM_Util;
 import me.StevenLawson.TotalFreedomMod.TFM_PlayerData;
-import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
 import static me.StevenLawson.TotalFreedomMod.TFM_Util.COOWNER;
+import static me.StevenLawson.TotalFreedomMod.TFM_Util.DEVELOPERS;
 import org.apache.commons.lang3.StringUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -17,7 +17,7 @@ public class Command_devchat extends TFM_Command
     @Override
     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args, boolean senderIsConsole)
     {
-        if (!sender.getName().equals("TheGamingSprite") && !DEVELOPERS.contains(sender.getName()) && !TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()) && !COOWNER.contains(sender.getName()))
+        if (!sender.getName().equals("iDelRey") && !TFM_ConfigEntry.SERVER_OWNERS.getList().contains(sender.getName()) && !COOWNER.contains(sender.getName()))
         {
             sender.sendMessage(TFM_Command.MSG_NO_PERMS);
             return true;
