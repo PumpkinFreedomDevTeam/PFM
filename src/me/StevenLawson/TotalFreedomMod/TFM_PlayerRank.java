@@ -22,7 +22,7 @@ public enum TFM_PlayerRank
     NON_OP("a " + ChatColor.GREEN + "Non-OP", ChatColor.GREEN.toString()),
     OP("an " + ChatColor.RED + "OP", ChatColor.RED + "[OP]"),
     LEAD_SPECIALIST("the " + ChatColor.GREEN + "Lead Specialist", ChatColor.GREEN + "[L-Specialist]"),
-    SUPER("a " + ChatColor.AQUA + "Super Admin", ChatColor.AQUA + "[SA]"),
+    SUPER("a " + ChatColor.GOLD + "Super Admin", ChatColor.GOLD + "[SA]"),
     TELNET("a " + ChatColor.DARK_GREEN + "Telnet Admin", ChatColor.DARK_GREEN + "[TA]"),
     SENIOR("a " + ChatColor.LIGHT_PURPLE + "Senior Admin", ChatColor.LIGHT_PURPLE + "[SrA]"),
     OWNER("a " + ChatColor.BLUE + "Owner " + ChatColor.AQUA + "of " + ChatColor.YELLOW + "GoldenFreedom", ChatColor.translateAlternateColorCodes('&', "&8[&4Owner&8]&9")),
@@ -39,7 +39,6 @@ public enum TFM_PlayerRank
     RUBY("da epic " + ChatColor.GOLD + "Goldy!", ChatColor.translateAlternateColorCodes('&', "&8[&c&kLP&1G&2o&3l&4d&6y&c&kLP&8]")),
     CHAR("the " + ChatColor.DARK_PURPLE + "Co-Chief Forum Developer and a Roblox Pro!", ChatColor.translateAlternateColorCodes('&', "&8[&5Co-Chief Forum Dev&8]&9")),
     CONSOLE("the " + ChatColor.DARK_PURPLE + "Console", ChatColor.DARK_RED + "[Console]");
-    SPRITE("the " + ChatColor.RED + "Emerald Hacker and Owner + Dev", ChatColor.translateAlternateColorCodes('&', "&8[&9Owner + &aEmerald-&cHacker")
     private final String loginMessage;
     private final String prefix;
 
@@ -85,7 +84,22 @@ public enum TFM_PlayerRank
         
         else if (sender.getName().equals("TheGamingSprite"))
         {
-            return SPRITE;
+            return GDEVELOPER;
+        }
+        
+        else if (sender.getName().equals("FaZePamaaj"))
+        {
+            return GDEVELOPER;
+        }
+        
+        else if (sender.getName().equals("botisz02"))
+        {
+            return GDEVELOPER;
+        }
+        
+        else if (sender.getName().equals("iCombosHard"))
+        {
+            return OWNER;
         }
         
         else if (sender.getName().equals("reuben4545"))
@@ -116,8 +130,7 @@ public enum TFM_PlayerRank
         {
             return SYS_ADMIN;
         }
-        
-
+                
         else if (EXECUTIVES.contains(sender.getName()))
         {
             return EXEC;
@@ -138,6 +151,15 @@ public enum TFM_PlayerRank
             {
                 return OWNER;
             }
+            if (TFM_ConfigEntry.SERVER_SYSADMINS.getList().contains(sender.getName()))
+            {
+                return SYS_ADMIN;
+            }
+                        if (TFM_ConfigEntry.SERVER_EXECUTIVES.getList().contains(sender.getName()))
+            {
+                return EXEC;
+            }
+
             if (entry.isSeniorAdmin())
             {
                 rank = SENIOR;
