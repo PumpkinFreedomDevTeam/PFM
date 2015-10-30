@@ -15,7 +15,7 @@ public enum TFM_PlayerRank
 {
     DEVELOPER("a " + ChatColor.DARK_PURPLE + "Developer", ChatColor.DARK_PURPLE + "[Developer]"),
     GDEVELOPER("a " + ChatColor.DARK_PURPLE + "GoldenFreedom Developer!", ChatColor.DARK_PURPLE + "[GF-Dev]"),
-	PDEVELOPER("a " + ChatColor.DARK_PURPLE + "PumpkinFreedom Developer!", ChatColor.DARK_PURPLE + "[PF-Dev]"),
+    PDEVELOPER("a " + ChatColor.DARK_PURPLE + "PumpkinFreedom Developer!", ChatColor.DARK_PURPLE + "[PF-Dev]"),
     FOP_DEVELOPER("a " + ChatColor.DARK_PURPLE + "Old FreedomOp Developer", ChatColor.DARK_PURPLE + "[FOP-Dev]"),
     RF_DEVELOPER("a " + ChatColor.DARK_PURPLE + "RubyFreedom Developer", ChatColor.DARK_PURPLE + "[RF-Dev]"),
     IMPOSTOR("an " + ChatColor.YELLOW + ChatColor.UNDERLINE + "Impostor", ChatColor.YELLOW.toString() + ChatColor.UNDERLINE + "[IMP]"),
@@ -83,22 +83,12 @@ public enum TFM_PlayerRank
             return CONSOLE;
         }
         
-        else if (sender.getName().equals("TheGamingSprite"))
-        {
-            return GDEVELOPER;
-        }
-        
         else if (sender.getName().equals("FaZePamaaj"))
         {
             return GDEVELOPER;
         }
         
-        else if (sender.getName().equals("botisz02"))
-        {
-            return GDEVELOPER;
-        }
-        
-        else if (sender.getName().equals("iCombosHard"))
+        else if (sender.getName().equals("iComboHard"))
         {
             return OWNER;
         }
