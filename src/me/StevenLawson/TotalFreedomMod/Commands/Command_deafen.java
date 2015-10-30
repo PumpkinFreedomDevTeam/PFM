@@ -36,14 +36,15 @@ public class Command_deafen extends TFM_Command
             }
         }
         
-       sender.sendMessage(ChatColor.RED + "If you abuse deafen, You're done for RubyFreedom");
+       sender.sendMessage(ChatColor.RED + "If you abuse deafen, You're done for GoldenFreedom");
 
         return true;
     }
 
     private static Location randomOffset(Location a, double magnitude)
     {
-        return a.clone().add(randomDoubleRange(-1.0, 1.0) * magnitude, randomDoubleRange(-1.0, 1.0) * magnitude, randomDoubleRange(-1.0, 1.0) * magnitude);
+        return a.clone().add(randomDoubleRange(-1.0, 1.0) * magnitude, randomDoubleRange(-1.0, 1.0) * magnitude, randomDoubleRange(-1.0, 1.0) * records.cat);
+        
     }
 
     private static Double randomDoubleRange(double min, double max)
